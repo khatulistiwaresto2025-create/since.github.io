@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <!-- Hero Image (FOTO TERPASANG DI SINI) -->
+      <!-- Hero Image -->
       <div class="flex-1 flex justify-center">
         <div class="relative w-80 h-80 sm:w-[420px] sm:h-[320px] rounded-3xl overflow-hidden border-4 border-khatulistiwaGold/50 shadow-2xl">
           <img src="new menu 2.jpeg" alt="Sajian Khatulistiwa Resto" class="w-full h-full object-cover">
@@ -96,7 +96,7 @@
     </div>
   </section>
 
-  <!-- Section Menu Produk (Tanpa Foto Produk) -->
+  <!-- Section Menu Produk -->
   <section id="menu" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="text-center mb-12">
       <h2 class="text-3xl sm:text-4xl font-black text-khatulistiwaGreen uppercase tracking-tight">Menu Produk Kami</h2>
@@ -295,8 +295,29 @@
           <span id="cart-total">0 LE</span>
         </div>
         
-        <div class="space-y-2">
+        <!-- Form Informasi Pemesan & Tipe Pesanan -->
+        <div class="space-y-3">
           <input type="text" id="cust-name" placeholder="Nama Pemesan" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen">
+          
+          <!-- Pilihan Tipe Pesanan -->
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Tipe Pesanan:</label>
+            <select id="order-type" onchange="handleOrderTypeChange()" class="w-full px-4 py-2 border rounded-xl text-sm font-semibold bg-white focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen">
+              <option value="Dine In">Dine In (Makan di Tempat)</option>
+              <option value="Tausil / Delivery">Tausil (Delivery)</option>
+              <option value="Take Away">Take Away (Bungkus)</option>
+            </select>
+          </div>
+
+          <!-- Input Dinamis Nomor Meja / Alamat -->
+          <div id="table-no-container">
+            <input type="text" id="cust-table" placeholder="Nomor Meja (Contoh: Meja 05)" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen">
+          </div>
+
+          <div id="address-container" class="hidden">
+            <textarea id="cust-address" placeholder="Alamat Lengkap Pengiriman (Tausil)" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen h-16 resize-none"></textarea>
+          </div>
+
           <textarea id="cust-notes" placeholder="Catatan Tambahan (Misal: Pedas/Nasi Gaol)" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen h-16 resize-none"></textarea>
         </div>
 
@@ -332,7 +353,7 @@
   </div>
 
   <script>
-    // DATA MENU (TANPA PROPERTI FOTO GURU/PRODUK)
+    // DATA MENU
     const allProducts = [
       // Ayam
       { id: 'a1', name: 'Nasi Putih/Gaol + Ayam Bakar', price: 90, cat: 'ayam' },
@@ -433,6 +454,25 @@
       renderMenuCategory('minuman', 'minuman-container');
     };
 
+    // Handler Tipe Pesanan
+    function handleOrderTypeChange() {
+      const orderType = document.getElementById('order-type').value;
+      const tableContainer = document.getElementById('table-no-container');
+      const addressContainer = document.getElementById('address-container');
+
+      if (orderType === 'Dine In') {
+        tableContainer.classList.remove('hidden');
+        addressContainer.classList.add('hidden');
+      } else if (orderType === 'Tausil / Delivery') {
+        tableContainer.classList.add('hidden');
+        addressContainer.classList.remove('hidden');
+      } else {
+        // Take Away
+        tableContainer.classList.add('hidden');
+        addressContainer.classList.add('hidden');
+      }
+    }
+
     // Cart System
     function addToCart(id) {
       const product = allProducts.find(p => p.id === id);
@@ -515,6 +555,9 @@
       }
 
       const name = document.getElementById('cust-name').value || 'Pelanggan';
+      const orderType = document.getElementById('order-type').value;
+      const tableNo = document.getElementById('cust-table').value || '-';
+      const address = document.getElementById('cust-address').value || '-';
       const notes = document.getElementById('cust-notes').value || '-';
       const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
@@ -523,7 +566,21 @@
         itemText += `${index + 1}. ${item.name} (${item.qty}x) = ${item.price * item.qty} LE\n`;
       });
 
-      const message = `Halo *Khatulistiwa Resto Cairo*, saya mau pesan:\n\n*Nama Pemesan:* ${name}\n\n*Rincian Pesanan:*\n${itemText}\n*Total Estimasi:* ${totalPrice} LE\n*Catatan:* ${notes}\n\nMohon diproses ya, terima kasih!`;
+      let locationDetails = '';
+      if (orderType === 'Dine In') {
+        locationDetails = `*No. Meja:* ${tableNo}\n`;
+      } else if (orderType === 'Tausil / Delivery') {
+        locationDetails = `*Alamat Pengiriman:* ${address}\n`;
+      }
+
+      const message = `Halo *Khatulistiwa Resto Cairo*, saya mau pesan:\n\n` +
+                      `*Nama Pemesan:* ${name}\n` +
+                      `*Tipe Pesanan:* ${orderType}\n` +
+                      `${locationDetails}\n` +
+                      `*Rincian Pesanan:*\n${itemText}\n` +
+                      `*Total Estimasi:* ${totalPrice} LE\n` +
+                      `*Catatan:* ${notes}\n\n` +
+                      `Mohon diproses ya, terima kasih!`;
 
       window.open(`https://wa.me/201515041807?text=${encodeURIComponent(message)}`, '_blank');
     }
