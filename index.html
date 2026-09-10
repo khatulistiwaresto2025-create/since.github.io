@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Khatulistiwa Resto Cairo - Cita Rasa Nusantara</title>
-  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <script>
     tailwind.config = {
@@ -26,22 +24,18 @@
 </head>
 <body class="bg-khatulistiwaBg text-gray-800 font-sans antialiased pb-20 md:pb-0">
 
-  <!-- Header & Navigation -->
+  <!-- Header -->
   <header class="sticky top-0 z-40 bg-white border-b border-emerald-100 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
       
-      <!-- Logo -->
       <a href="#" class="flex items-center gap-3">
-        <div class="bg-khatulistiwaGreen text-khatulistiwaGold font-black text-2xl px-3 py-1.5 rounded-xl shadow">
-          KR
-        </div>
-        <div>
+        <img src="logo.png" alt="Logo Khatulistiwa Resto" class="h-12 w-auto object-contain rounded-lg" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x150/0E5A3B/D4AF37?text=KHATULISTIWA';">
+        <div class="hidden sm:block">
           <span class="text-xl font-black text-khatulistiwaGreen tracking-tight block leading-none">KHATULISTIWA</span>
           <span class="text-xs font-semibold tracking-widest text-khatulistiwaGold uppercase">Resto Cairo</span>
         </div>
       </a>
       
-      <!-- Menu Navigasi Desktop -->
       <nav class="hidden md:flex space-x-8 font-bold text-sm text-gray-700 uppercase tracking-wide">
         <a href="#beranda" class="hover:text-khatulistiwaGreen transition">Beranda</a>
         <a href="#menu" class="hover:text-khatulistiwaGreen transition">Menu Produk</a>
@@ -49,7 +43,6 @@
         <a href="#kontak" class="hover:text-khatulistiwaGreen transition">Kontak</a>
       </nav>
 
-      <!-- Tombol Keranjang Belanja -->
       <button onclick="toggleCart()" class="relative bg-khatulistiwaGreen hover:bg-khatulistiwaDark text-white px-5 py-2.5 rounded-full font-bold text-sm transition shadow-md flex items-center gap-2">
         <i class="ph ph-shopping-cart text-xl text-khatulistiwaGold"></i>
         <span class="hidden sm:inline">Keranjang</span>
@@ -59,7 +52,7 @@
     </div>
   </header>
 
-  <!-- Section Beranda (Hero) -->
+  <!-- Hero Section dengan Foto Baru -->
   <section id="beranda" class="relative bg-gradient-to-br from-khatulistiwaDark via-khatulistiwaGreen to-emerald-800 text-white py-16 md:py-24 overflow-hidden">
     <div class="absolute top-0 left-0 w-full h-1.5 bg-khatulistiwaGold"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-10">
@@ -85,13 +78,13 @@
         </div>
       </div>
 
-      <!-- Hero Image / Badge -->
+      <!-- FOTO BARU DIPASANG DI SINI -->
       <div class="flex-1 flex justify-center">
-        <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-3xl overflow-hidden border-4 border-khatulistiwaGold/50 shadow-2xl">
-          <img src="new menu 2.jpeg alt="Khatulistiwa Resto Cairo" class="w-full h-full object-cover">
-          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-center">
-            <p class="text-khatulistiwaGold font-bold text-sm">Fresh Ingredients Every Day</p>
-            <p class="text-xs text-gray-200">100% Halal & Autentik Indonesia</p>
+        <div class="relative w-80 h-80 sm:w-[420px] sm:h-[320px] rounded-3xl overflow-hidden border-4 border-khatulistiwaGold/50 shadow-2xl">
+          <img src="new menu 2.jpeg" alt="Sajikan Spesial Khatulistiwa Resto" class="w-full h-full object-cover object-center">
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-center">
+            <p class="text-khatulistiwaGold font-bold text-sm">Paket Komplit Khatulistiwa</p>
+            <p class="text-xs text-gray-200">100% Halal & Rempah Asli Indonesia</p>
           </div>
         </div>
       </div>
@@ -99,395 +92,177 @@
     </div>
   </section>
 
-  <!-- Section Menu Produk -->
+  <!-- Section Menu -->
   <section id="menu" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="text-center mb-12">
       <h2 class="text-3xl sm:text-4xl font-black text-khatulistiwaGreen uppercase tracking-tight">Menu Produk Kami</h2>
       <div class="w-24 h-1 bg-khatulistiwaGold mx-auto mt-2 rounded-full"></div>
-      <p class="text-gray-600 mt-3">Klik tombol <span class="font-bold text-khatulistiwaGreen">+ Tambah</span> untuk memasukkan pilihan ke keranjang belanja</p>
     </div>
 
-    <!-- Category 1: Nasi + Ayam -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-bowl-food text-2xl text-khatulistiwaGreen"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Menu Dinner: Nasi + Ayam</h3>
+    <!-- Container Menu -->
+    <div class="space-y-12">
+      <div>
+        <h3 class="text-2xl font-black text-khatulistiwaGreen mb-4 pb-2 border-b-2 border-khatulistiwaGreen flex items-center gap-2">
+          <i class="ph ph-bowl-food"></i> Menu Dinner: Nasi + Ayam
+        </h3>
+        <p class="text-xs bg-emerald-100 text-khatulistiwaDark font-semibold px-3 py-1.5 rounded-lg mb-4 inline-block">
+          *Sudah termasuk Sambal, Kuah Bening, dan Lalapan Timun
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ayam-container"></div>
       </div>
-      <p class="text-xs bg-emerald-100 text-khatulistiwaDark font-semibold px-3 py-1.5 rounded-lg mb-4 inline-block">
-        *Keterangan: Sudah termasuk Sambal, Kuah Bening, dan Lalapan Timun
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <script>
-          const ayamMenu = [
-            { id: 'a1', name: 'Nasi Putih/Gaol + Ayam Bakar', price: 90, desc: 'Pilihan Nasi Putih / Gaol + Ayam Bakar Rempah' },
-            { id: 'a2', name: 'Nasi Putih/Gaol + Ayam Ketumbar', price: 90, desc: 'Pilihan Nasi Putih / Gaol + Ayam Bumbu Ketumbar' },
-            { id: 'a3', name: 'Nasi Putih/Gaol + Ayam Goreng', price: 90, desc: 'Pilihan Nasi Putih / Gaol + Ayam Goreng Tradisional' },
-            { id: 'a4', name: 'Nasi Putih/Gaol + Ayam Krispy', price: 90, desc: 'Pilihan Nasi Putih / Gaol + Ayam Goreng Renyah Krispy' },
-            { id: 'a5', name: 'Nasi Putih/Gaol + Ayam Geprek', price: 90, desc: 'Pilihan Nasi Putih / Gaol + Ayam Geprek Sambal Mantap' }
-          ];
-        </script>
-        <!-- Card Rendering Ayam Done via JS below -->
-        <div id="ayam-container" class="contents"></div>
+
+      <div>
+        <h3 class="text-2xl font-black text-khatulistiwaGreen mb-4 pb-2 border-b-2 border-khatulistiwaGreen flex items-center gap-2">
+          <i class="ph ph-fire text-red-600"></i> Seblak Khatulistiwa
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="seblak-container"></div>
       </div>
-    </div>
 
-    <!-- Category 2: Seblak Khatulistiwa -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-fire text-2xl text-red-600"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Seblak Khatulistiwa</h3>
+      <div>
+        <h3 class="text-2xl font-black text-khatulistiwaGreen mb-4 pb-2 border-b-2 border-khatulistiwaGreen flex items-center gap-2">
+          <i class="ph ph-cooking-pot"></i> Kwetiau Khatulistiwa
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="kwetiau-container"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="seblak-container"></div>
-    </div>
 
-    <!-- Category 3: Kwetiau Khatulistiwa -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-cooking-pot text-2xl text-khatulistiwaGreen"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Kwetiau Khatulistiwa</h3>
+      <div>
+        <h3 class="text-2xl font-black text-khatulistiwaGreen mb-4 pb-2 border-b-2 border-khatulistiwaGreen flex items-center gap-2">
+          <i class="ph ph-fish text-blue-600"></i> Nasi + Ikan
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ikan-container"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="kwetiau-container"></div>
-    </div>
 
-    <!-- Category 4: Nasi + Ikan -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-fish text-2xl text-blue-600"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Nasi + Ikan</h3>
+      <div>
+        <h3 class="text-2xl font-black text-khatulistiwaGreen mb-4 pb-2 border-b-2 border-khatulistiwaGreen flex items-center gap-2">
+          <i class="ph ph-drop text-amber-600"></i> Soup Tomyum
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="tomyum-container"></div>
       </div>
-      <p class="text-xs bg-emerald-100 text-khatulistiwaDark font-semibold px-3 py-1.5 rounded-lg mb-4 inline-block">
-        *Keterangan: Sudah termasuk Sambal, Kuah Bening, dan Lalapan Timun
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ikan-container"></div>
-    </div>
 
-    <!-- Category 5: Soup Tomyum -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-drop text-2xl text-amber-600"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Soup Tomyum</h3>
+      <div>
+        <h3 class="text-2xl font-black text-khatulistiwaGreen mb-4 pb-2 border-b-2 border-khatulistiwaGreen flex items-center gap-2">
+          <i class="ph ph-plus-circle"></i> Ekstra Topping / Lauk
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ekstra-container"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="tomyum-container"></div>
-    </div>
 
-    <!-- Category 6: Ekstra Makanan -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-plus-circle text-2xl text-khatulistiwaGreen"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Ekstra Topping / Lauk</h3>
+      <div>
+        <h3 class="text-2xl font-black text-khatulistiwaGreen mb-4 pb-2 border-b-2 border-khatulistiwaGreen flex items-center gap-2">
+          <i class="ph ph-cookie text-amber-700"></i> Cemilan
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cemilan-container"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ekstra-container"></div>
-    </div>
 
-    <!-- Category 7: Cemilan -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-cookie text-2xl text-amber-700"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Cemilan</h3>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cemilan-container"></div>
-    </div>
-
-    <!-- Category 8: Minuman -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-coffee text-2xl text-emerald-600"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Minuman (Classic & Premium)</h3>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="minuman-container"></div>
-    </div>
-
-  </section>
-
-  <!-- Section Tentang Kami -->
-  <section id="tentang" class="bg-white py-16 border-y border-stone-200">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-khatulistiwaBg p-8 sm:p-12 rounded-3xl border border-emerald-100 shadow-sm text-center md:text-left flex flex-col md:flex-row items-center gap-8">
-        <div class="w-32 h-32 bg-khatulistiwaGreen text-khatulistiwaGold rounded-full flex items-center justify-center font-black text-4xl shrink-0 shadow-lg">
-          KR
-        </div>
-        <div class="space-y-4">
-          <h2 class="text-3xl font-black text-khatulistiwaGreen">Tentang Khatulistiwa Resto</h2>
-          <p class="text-gray-700 leading-relaxed">
-            <strong>Khatulistiwa Resto</strong> hadir di jantung Cairo sebagai rumah kedua untuk anak rantau dan pecinta kuliner Indonesia. Kami hadir untuk menjawab semua kebutuhan kalian akan rasa yang autentik dan cita rasa yang khas. 
-          </p>
-          <p class="text-gray-700 leading-relaxed">
-            Kami selalu menyajikan hidangan dengan bahan-bahan fresh setiap harinya. Nama <em class="text-khatulistiwaGreen font-bold">"Khatulistiwa"</em> dipilih karena titik temu rasa yang akan membuat kalian merasa serasa berada di rumah sendiri.
-          </p>
-        </div>
+      <div>
+        <h3 class="text-2xl font-black text-khatulistiwaGreen mb-4 pb-2 border-b-2 border-khatulistiwaGreen flex items-center gap-2">
+          <i class="ph ph-coffee text-emerald-600"></i> Minuman
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="minuman-container"></div>
       </div>
     </div>
   </section>
 
-  <!-- Section Kontak Kami -->
-  <section id="kontak" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-black text-khatulistiwaGreen uppercase tracking-tight">Kontak & Lokasi Kami</h2>
-      <div class="w-20 h-1 bg-khatulistiwaGold mx-auto mt-2 rounded-full"></div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Detail Kontak -->
-      <div class="bg-khatulistiwaGreen text-white p-8 rounded-3xl shadow-lg space-y-6 flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-bold text-khatulistiwaGold mb-4">Hubungi Khatulistiwa Resto</h3>
-          <p class="text-emerald-100 text-sm mb-6">Silakan hubungi kami untuk informasi pesanan, catering, atau reservasi tempat.</p>
-          
-          <div class="space-y-4 text-sm">
-            <div class="flex items-start gap-4">
-              <i class="ph ph-whatsapp-logo text-2xl text-khatulistiwaGold shrink-0"></i>
-              <div>
-                <p class="font-bold">WhatsApp / Telepon:</p>
-                <a href="https://wa.me/201515041807" target="_blank" class="hover:underline text-emerald-200">+20 15 15 041807</a>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <i class="ph ph-instagram-logo text-2xl text-khatulistiwaGold shrink-0"></i>
-              <div>
-                <p class="font-bold">Instagram:</p>
-                <a href="https://instagram.com/khatulistiwa.egy" target="_blank" class="hover:underline text-emerald-200">@khatulistiwa.egy</a>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <i class="ph ph-tiktok-logo text-2xl text-khatulistiwaGold shrink-0"></i>
-              <div>
-                <p class="font-bold">TikTok:</p>
-                <a href="https://tiktok.com/@khatulistiwa.egyp" target="_blank" class="hover:underline text-emerald-200">@khatulistiwa.egyp</a>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <i class="ph ph-map-pin text-2xl text-khatulistiwaGold shrink-0"></i>
-              <div>
-                <p class="font-bold">Alamat Resto:</p>
-                <p class="text-emerald-200 leading-snug">27 Dr Ibrahim Abou El-Naga, Al Hadiqah Ad Dawleyah, Qesm Than Madinet Nasr, Cairo Governorate 4441280, Egypt</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a href="https://wa.me/201515041807" target="_blank" class="bg-khatulistiwaGold text-khatulistiwaDark text-center font-black py-3.5 rounded-full hover:bg-amber-400 transition block">
-          Chat WhatsApp Sekarang
-        </a>
-      </div>
-
-      <!-- Lokasi / Embed Info -->
-      <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-md flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-bold text-khatulistiwaGreen mb-2">Lokasi Strategis Nasr City</h3>
-          <p class="text-sm text-gray-600 mb-4">Temukan kami dengan mudah di kawasan Madinet Nasr, Cairo.</p>
-          <div class="w-full h-64 bg-emerald-50 rounded-2xl flex flex-col items-center justify-center p-6 text-center border border-emerald-200">
-            <i class="ph ph-map-trifold text-5xl text-khatulistiwaGreen mb-2"></i>
-            <p class="font-bold text-khatulistiwaGreen">Nasr City, Cairo, Egypt</p>
-            <p class="text-xs text-gray-500 mt-1">27 Dr Ibrahim Abou El-Naga, Al Hadiqah Ad Dawleyah</p>
-          </div>
-        </div>
-        <div class="mt-6">
-          <a href="https://maps.google.com/?q=27+Dr+Ibrahim+Abou+El-Naga+Cairo" target="_blank" class="w-full bg-emerald-100 hover:bg-emerald-200 text-khatulistiwaGreen font-bold py-3 rounded-xl transition text-center block text-sm">
-            Buka Petunjuk Jalan (Google Maps)
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sidebar Keranjang Belanja (Drawer) -->
+  <!-- Drawer Cart & Footer tetep presisi -->
   <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity opacity-0 pointer-events-none">
     <div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="cart-content">
-      
-      <!-- Cart Header -->
       <div class="p-6 bg-khatulistiwaGreen text-white flex items-center justify-between">
         <div class="flex items-center gap-2">
           <i class="ph ph-shopping-cart-simple text-2xl text-khatulistiwaGold"></i>
           <h3 class="text-lg font-bold">Keranjang Pesanan</h3>
         </div>
-        <button onclick="toggleCart()" class="text-white hover:text-khatulistiwaGold text-2xl">
-          <i class="ph ph-x"></i>
-        </button>
+        <button onclick="toggleCart()" class="text-white hover:text-khatulistiwaGold text-2xl"><i class="ph ph-x"></i></button>
       </div>
-
-      <!-- Cart Items List -->
-      <div id="cart-items" class="p-6 flex-1 overflow-y-auto space-y-4">
-        <!-- Iterasi item keranjang lewat JS -->
-      </div>
-
-      <!-- Cart Footer -->
+      <div id="cart-items" class="p-6 flex-1 overflow-y-auto space-y-4"></div>
       <div class="p-6 border-t border-gray-100 bg-gray-50 space-y-4">
         <div class="flex justify-between items-center text-lg font-extrabold text-khatulistiwaGreen">
           <span>Total Estimasi:</span>
           <span id="cart-total">0 LE</span>
         </div>
-        
-        <!-- Input Nama & Catatan -->
-        <div class="space-y-2">
-          <input type="text" id="cust-name" placeholder="Nama Pemesan" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen">
-          <textarea id="cust-notes" placeholder="Catatan Tambahan (Misal: Pedas/Nasi Gaol)" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen h-16 resize-none"></textarea>
-        </div>
-
+        <input type="text" id="cust-name" placeholder="Nama Pemesan" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen">
+        <textarea id="cust-notes" placeholder="Catatan Tambahan (Misal: Pedas / Nasi Gaol)" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen h-16 resize-none"></textarea>
         <button onclick="checkoutToWA()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg">
           <i class="ph ph-whatsapp-logo text-2xl"></i>
           <span>Pesan via WhatsApp</span>
         </button>
       </div>
-
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="bg-khatulistiwaDark text-emerald-200 py-10 border-t-4 border-khatulistiwaGold">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-      <div class="text-2xl font-black text-khatulistiwaGold">KHATULISTIWA RESTO CAIRO</div>
-      <p class="text-xs text-emerald-300 max-w-md mx-auto">Menyajikan makanan khas Nusantara autentik dengan bahan-bahan terbaik di Madinet Nasr, Cairo.</p>
-      <div class="text-xs text-emerald-400 pt-4 border-t border-emerald-900">
-        &copy; 2026 Khatulistiwa Resto Cairo. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating WA Button for Mobile -->
-  <div class="fixed bottom-4 left-4 right-4 md:hidden z-30">
-    <button onclick="toggleCart()" class="w-full bg-khatulistiwaGreen text-white font-bold py-3 rounded-full shadow-2xl flex items-center justify-between px-6 border border-khatulistiwaGold">
-      <div class="flex items-center gap-2">
-        <i class="ph ph-shopping-bag text-xl text-khatulistiwaGold"></i>
-        <span>Lihat Keranjang</span>
-      </div>
-      <span id="mobile-cart-badge" class="bg-khatulistiwaGold text-khatulistiwaDark px-2.5 py-0.5 rounded-full text-xs font-black">0 Item</span>
-    </button>
-  </div>
-
-  <!-- JavaScript Logic -->
   <script>
-    // Data Seluruh Menu
+    // DATA MENU (FOTO new menu 2.jpeg DIPASANG KE MENU AYAM BAKAR/GAOL)
     const allProducts = [
-      // Ayam
-      { id: 'a1', name: 'Nasi Putih/Gaol + Ayam Bakar', price: 90, cat: 'ayam' },
-      { id: 'a2', name: 'Nasi Putih/Gaol + Ayam Ketumbar', price: 90, cat: 'ayam' },
-      { id: 'a3', name: 'Nasi Putih/Gaol + Ayam Goreng', price: 90, cat: 'ayam' },
-      { id: 'a4', name: 'Nasi Putih/Gaol + Ayam Krispy', price: 90, cat: 'ayam' },
-      { id: 'a5', name: 'Nasi Putih/Gaol + Ayam Geprek', price: 90, cat: 'ayam' },
-      // Seblak
-      { id: 's1', name: 'Seblak Komplit', price: 110, cat: 'seblak' },
-      { id: 's2', name: 'Seblak Ceker', price: 75, cat: 'seblak' },
-      { id: 's3', name: 'Seblak Tulang', price: 75, cat: 'seblak' },
-      { id: 's4', name: 'Seblak Mie Telor', price: 75, cat: 'seblak' },
-      { id: 's5', name: 'Seblak Mie', price: 65, cat: 'seblak' },
-      // Kwetiau
-      { id: 'k1', name: 'Kwetiau Ori', price: 85, cat: 'kwetiau' },
-      { id: 'k2', name: 'Kwetiau Telur', price: 95, cat: 'kwetiau' },
-      { id: 'k3', name: 'Kwetiau Ayam', price: 100, cat: 'kwetiau' },
-      { id: 'k4', name: 'Kwetiau Sapi', price: 110, cat: 'kwetiau' },
-      // Ikan
-      { id: 'i1', name: 'Nasi Putih/Gaol + Ikan Goreng', price: 85, cat: 'ikan' },
-      { id: 'i2', name: 'Nasi Putih/Gaol + Ikan Bakar', price: 85, cat: 'ikan' },
-      // Tomyum
-      { id: 't1', name: 'Soup Mee Tomyum', price: 70, cat: 'tomyum' },
-      { id: 't2', name: 'Soup Mee Tomyum Ayam', price: 80, cat: 'tomyum' },
-      { id: 't3', name: 'Soup Tomyum Ayam', price: 100, cat: 'tomyum' },
-      { id: 't4', name: 'Soup Tomyum Sapi', price: 110, cat: 'tomyum' },
-      // Ekstra
-      { id: 'e1', name: 'Telur', price: 10, cat: 'ekstra' },
-      { id: 'e2', name: 'Mie', price: 10, cat: 'ekstra' },
-      { id: 'e3', name: 'Nasi Putih/Gaol', price: 15, cat: 'ekstra' },
-      { id: 'e4', name: 'Sambal Merah / Chili Padi', price: 15, cat: 'ekstra' },
-      { id: 'e5', name: 'Ceker 1 pcs', price: 13, cat: 'ekstra' },
-      { id: 'e6', name: 'Ceker 3 pcs', price: 35, cat: 'ekstra' },
-      // Cemilan
-      { id: 'c1', name: 'Dimsum Goreng Ori (isi 5 pcs)', price: 80, cat: 'cemilan' },
-      { id: 'c2', name: 'Dimsum Goreng Mozzarella (isi 4 pcs)', price: 90, cat: 'cemilan' },
-      { id: 'c3', name: 'Dimsum Goreng Combo (3 Ori & 2 Moza)', price: 100, cat: 'cemilan' },
-      { id: 'c4', name: 'Pisang Goreng Khatulistiwa (isi 8 pcs)', price: 65, cat: 'cemilan' },
-      { id: 'c5', name: 'Ceker Mercon (isi 5 pcs)', price: 60, cat: 'cemilan' },
-      // Minuman
-      { id: 'm1', name: 'Tea (Hot 20 / Cold 25 LE)', price: 25, cat: 'minuman' },
-      { id: 'm2', name: 'Lemon (Hot 20 / Cold 25 LE)', price: 25, cat: 'minuman' },
-      { id: 'm3', name: 'Lemon Tea (Hot 25 / Cold 30 LE)', price: 30, cat: 'minuman' },
-      { id: 'm4', name: 'Susu (Hot 30 / Cold 35 LE)', price: 35, cat: 'minuman' },
-      { id: 'm5', name: 'Es Bandung (Cold)', price: 40, cat: 'minuman' },
-      { id: 'm6', name: 'Nescafe (Hot 30 / Cold 35 LE)', price: 35, cat: 'minuman' },
-      { id: 'm7', name: 'Kopi Hitam (Hot)', price: 35, cat: 'minuman' },
-      { id: 'm8', name: 'Kopi Susu (Hot 40 / Cold 45 LE)', price: 45, cat: 'minuman' },
-      { id: 'm9', name: 'Faransawi (Hot)', price: 45, cat: 'minuman' },
-      { id: 'm10', name: 'Thai Tea', price: 65, cat: 'minuman' },
-      { id: 'm11', name: 'Green Tea', price: 65, cat: 'minuman' },
-      { id: 'm12', name: 'Matcha', price: 80, cat: 'minuman' },
-      { id: 'm13', name: 'Matcha Strawberry', price: 90, cat: 'minuman' },
-      { id: 'm14', name: 'Redvelvet', price: 80, cat: 'minuman' },
-      { id: 'm15', name: 'Dark Chocolate', price: 80, cat: 'minuman' },
-      { id: 'm16', name: 'Kopi Susu Khatulistiwa', price: 60, cat: 'minuman' },
-      { id: 'm17', name: 'Kopi Susu Gula Aren', price: 70, cat: 'minuman' },
-      { id: 'm18', name: 'Ekstra Boba', price: 25, cat: 'minuman' },
-      { id: 'm19', name: 'Ekstra Jelly', price: 15, cat: 'minuman' }
+      { id: 'a1', name: 'Nasi Putih/Gaol + Ayam Bakar', price: 90, cat: 'ayam', img: 'new menu 2.jpeg' },
+      { id: 'a2', name: 'Nasi Putih/Gaol + Ayam Ketumbar', price: 90, cat: 'ayam', img: 'new menu 2.jpeg' },
+      { id: 'a3', name: 'Nasi Putih/Gaol + Ayam Goreng', price: 90, cat: 'ayam', img: 'new menu 2.jpeg' },
+      { id: 'a4', name: 'Nasi Putih/Gaol + Ayam Krispy', price: 90, cat: 'ayam', img: 'ayam-krispy.jpg' },
+      { id: 'a5', name: 'Nasi Putih/Gaol + Ayam Geprek', price: 90, cat: 'ayam', img: 'ayam-geprek.jpg' },
+      
+      { id: 's1', name: 'Seblak Komplit', price: 110, cat: 'seblak', img: 'seblak.jpg' },
+      { id: 's2', name: 'Seblak Ceker', price: 75, cat: 'seblak', img: 'seblak.jpg' },
+      { id: 's3', name: 'Seblak Tulang', price: 75, cat: 'seblak', img: 'seblak.jpg' },
+      
+      { id: 'k1', name: 'Kwetiau Ori', price: 85, cat: 'kwetiau', img: 'kwetiau.jpg' },
+      { id: 'k2', name: 'Kwetiau Ayam', price: 100, cat: 'kwetiau', img: 'kwetiau.jpg' },
+      
+      { id: 'i1', name: 'Nasi Putih/Gaol + Ikan Goreng', price: 85, cat: 'ikan', img: 'ikan.jpg' },
+      { id: 't1', name: 'Soup Tomyum Ayam', price: 100, cat: 'tomyum', img: 'tomyum.jpg' },
+      { id: 'e1', name: 'Nasi Putih/Gaol', price: 15, cat: 'ekstra', img: 'nasi.jpg' },
+      { id: 'c1', name: 'Pisang Goreng Khatulistiwa (8 pcs)', price: 65, cat: 'cemilan', img: 'pisang.jpg' },
+      { id: 'm1', name: 'Es Teh / Tea Cold', price: 25, cat: 'minuman', img: 'esteh.jpg' },
+      { id: 'm2', name: 'Thai Tea', price: 65, cat: 'minuman', img: 'thaitea.jpg' }
     ];
 
     let cart = [];
 
-    // Render Cards Function
     function renderMenuCategory(category, containerId) {
       const container = document.getElementById(containerId);
+      if(!container) return;
       const items = allProducts.filter(p => p.cat === category);
       
       container.innerHTML = items.map(item => `
-        <div class="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-          <div>
-            <h4 class="font-bold text-gray-800 text-lg">${item.name}</h4>
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div class="h-44 w-full bg-gray-100 relative">
+            <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80';">
           </div>
-          <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
-            <span class="font-black text-khatulistiwaGreen text-lg">${item.price} LE</span>
-            <button onclick="addToCart('${item.id}')" class="bg-khatulistiwaGreen hover:bg-khatulistiwaDark text-white font-bold text-xs px-4 py-2 rounded-xl transition flex items-center gap-1">
-              <i class="ph ph-plus"></i> Tambah
-            </button>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <h4 class="font-bold text-gray-800 text-base">${item.name}</h4>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+              <span class="font-black text-khatulistiwaGreen text-lg">${item.price} LE</span>
+              <button onclick="addToCart('${item.id}')" class="bg-khatulistiwaGreen hover:bg-khatulistiwaDark text-white font-bold text-xs px-4 py-2 rounded-xl transition flex items-center gap-1">
+                <i class="ph ph-plus"></i> Tambah
+              </button>
+            </div>
           </div>
         </div>
       `).join('');
     }
 
-    // Initialize Menu
     window.onload = function() {
-      renderMenuCategory('ayam', 'ayam-container');
-      renderMenuCategory('seblak', 'seblak-container');
-      renderMenuCategory('kwetiau', 'kwetiau-container');
-      renderMenuCategory('ikan', 'ikan-container');
-      renderMenuCategory('tomyum', 'tomyum-container');
-      renderMenuCategory('ekstra', 'ekstra-container');
-      renderMenuCategory('cemilan', 'cemilan-container');
-      renderMenuCategory('minuman', 'minuman-container');
+      ['ayam','seblak','kwetiau','ikan','tomyum','ekstra','cemilan','minuman'].forEach(cat => {
+        renderMenuCategory(cat, `${cat}-container`);
+      });
     };
 
-    // Cart Logic
     function addToCart(id) {
       const product = allProducts.find(p => p.id === id);
       const existing = cart.find(item => item.id === id);
-
-      if(existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({...product, qty: 1});
-      }
+      if(existing) { existing.qty += 1; } else { cart.push({...product, qty: 1}); }
       updateCartUI();
     }
 
     function updateCartUI() {
       const cartItemsContainer = document.getElementById('cart-items');
       const cartCount = document.getElementById('cart-count');
-      const mobileBadge = document.getElementById('mobile-cart-badge');
       const cartTotal = document.getElementById('cart-total');
 
       const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
       const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
       cartCount.innerText = totalItems;
-      mobileBadge.innerText = totalItems + ' Item';
       cartTotal.innerText = totalPrice + ' LE';
 
       if(cart.length === 0) {
-        cartItemsContainer.innerHTML = `
-          <div class="text-center py-12 text-gray-400">
-            <i class="ph ph-shopping-cart text-5xl mb-2"></i>
-            <p>Keranjang Anda masih kosong</p>
-          </div>
-        `;
+        cartItemsContainer.innerHTML = `<div class="text-center py-12 text-gray-400"><i class="ph ph-shopping-cart text-5xl mb-2"></i><p>Keranjang masih kosong</p></div>`;
       } else {
         cartItemsContainer.innerHTML = cart.map(item => `
           <div class="flex items-center justify-between border-b pb-3">
@@ -496,9 +271,9 @@
               <p class="text-xs text-khatulistiwaGreen font-bold">${item.price} LE x ${item.qty}</p>
             </div>
             <div class="flex items-center gap-2">
-              <button onclick="changeQty('${item.id}', -1)" class="w-7 h-7 bg-gray-100 rounded-lg text-bold text-gray-600">-</button>
+              <button onclick="changeQty('${item.id}', -1)" class="w-7 h-7 bg-gray-100 rounded-lg font-bold text-gray-600">-</button>
               <span class="text-sm font-bold">${item.qty}</span>
-              <button onclick="changeQty('${item.id}', 1)" class="w-7 h-7 bg-emerald-100 text-khatulistiwaGreen rounded-lg text-bold">+</button>
+              <button onclick="changeQty('${item.id}', 1)" class="w-7 h-7 bg-emerald-100 text-khatulistiwaGreen rounded-lg font-bold">+</button>
             </div>
           </div>
         `).join('');
@@ -509,9 +284,7 @@
       const item = cart.find(p => p.id === id);
       if(item) {
         item.qty += change;
-        if(item.qty <= 0) {
-          cart = cart.filter(p => p.id !== id);
-        }
+        if(item.qty <= 0) cart = cart.filter(p => p.id !== id);
       }
       updateCartUI();
     }
@@ -519,23 +292,13 @@
     function toggleCart() {
       const drawer = document.getElementById('cart-drawer');
       const content = document.getElementById('cart-content');
-      
-      if(drawer.classList.contains('opacity-0')) {
-        drawer.classList.remove('opacity-0', 'pointer-events-none');
-        content.classList.remove('translate-x-full');
-      } else {
-        drawer.classList.add('opacity-0', 'pointer-events-none');
-        content.classList.add('translate-x-full');
-      }
+      drawer.classList.toggle('opacity-0');
+      drawer.classList.toggle('pointer-events-none');
+      content.classList.toggle('translate-x-full');
     }
 
-    // Checkout to WhatsApp
     function checkoutToWA() {
-      if(cart.length === 0) {
-        alert('Keranjang Anda masih kosong!');
-        return;
-      }
-
+      if(cart.length === 0) return alert('Keranjang masih kosong!');
       const name = document.getElementById('cust-name').value || 'Pelanggan';
       const notes = document.getElementById('cust-notes').value || '-';
       const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
@@ -546,9 +309,7 @@
       });
 
       const message = `Halo *Khatulistiwa Resto Cairo*, saya mau pesan:\n\n*Nama Pemesan:* ${name}\n\n*Rincian Pesanan:*\n${itemText}\n*Total Estimasi:* ${totalPrice} LE\n*Catatan:* ${notes}\n\nMohon diproses ya, terima kasih!`;
-
-      const encodedMessage = encodeURIComponent(message);
-      window.open(`https://wa.me/201515041807?text=${encodedMessage}`, '_blank');
+      window.open(`https://wa.me/201515041807?text=${encodeURIComponent(message)}`, '_blank');
     }
   </script>
 </body>
