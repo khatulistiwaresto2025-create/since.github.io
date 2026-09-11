@@ -1,623 +1,907 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khatulistiwa Resto Cairo - Cita Rasa Nusantara</title>
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            khatulistiwaGreen: '#0E5A3B',
-            khatulistiwaDark: '#073824',
-            khatulistiwaLight: '#147A50',
-            khatulistiwaGold: '#D4AF37',
-            khatulistiwaBg: '#F4F7F5'
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khatulistiwa Resto - Cita Rasa Autentik di Cairo</title>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e5631;
+            --primary-light: #4c9a2a;
+            --secondary-color: #76ba1b;
+            --accent-color: #a4de02;
+            --bg-light: #f4f7f4;
+            --text-dark: #222222;
+            --white: #ffffff;
         }
-      }
-    }
-  </script>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-area h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero / Beranda */
+        .hero {
+            background: linear-gradient(rgba(30, 86, 49, 0.85), rgba(30, 86, 49, 0.85)), 
+                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        .btn-wa-hero {
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .btn-wa-hero:hover {
+            transform: scale(1.05);
+        }
+
+        /* Service Option Section */
+        .service-type {
+            max-width: 1200px;
+            margin: 30px auto 10px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .service-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .service-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .service-btn.active, .service-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Section Styling */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 28px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            display: block;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Category Grid */
+        .category-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 25px 0 15px;
+            font-size: 20px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .menu-note {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .menu-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .btn-add {
+            background-color: var(--primary-light);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .btn-add:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .about-card p {
+            font-size: 16px;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Sticky Floating Cart */
+        .cart-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            z-index: 1001;
+            font-weight: bold;
+        }
+
+        .cart-badge {
+            background: white;
+            color: #25D366;
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 14px;
+        }
+
+        /* Cart Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .close-btn {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 8px;
+        }
+
+        .cart-item-controls button {
+            background: #eee;
+            border: none;
+            padding: 2px 8px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .cart-total {
+            font-weight: bold;
+            font-size: 18px;
+            text-align: right;
+            margin-top: 15px;
+            color: var(--primary-color);
+        }
+
+        .btn-checkout {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-khatulistiwaBg text-gray-800 font-sans antialiased pb-20 md:pb-0">
+<body>
 
-  <!-- Header & Navigation -->
-  <header class="sticky top-0 z-40 bg-white border-b border-emerald-100 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
-      
-      <!-- Brand Text -->
-      <a href="#" class="flex items-center gap-3">
-        <div>
-          <span class="text-2xl font-black text-khatulistiwaGreen tracking-tight block leading-none">KHATULISTIWA</span>
-          <span class="text-xs font-semibold tracking-widest text-khatulistiwaGold uppercase">Resto Cairo</span>
-        </div>
-      </a>
-      
-      <!-- Menu Navigasi Desktop -->
-      <nav class="hidden md:flex space-x-8 font-bold text-sm text-gray-700 uppercase tracking-wide">
-        <a href="#beranda" class="hover:text-khatulistiwaGreen transition">Beranda</a>
-        <a href="#menu" class="hover:text-khatulistiwaGreen transition">Menu Produk</a>
-        <a href="#tentang" class="hover:text-khatulistiwaGreen transition">Tentang Kami</a>
-        <a href="#kontak" class="hover:text-khatulistiwaGreen transition">Kontak</a>
-      </nav>
-
-      <!-- Tombol Keranjang Belanja -->
-      <button onclick="toggleCart()" class="relative bg-khatulistiwaGreen hover:bg-khatulistiwaDark text-white px-5 py-2.5 rounded-full font-bold text-sm transition shadow-md flex items-center gap-2">
-        <i class="ph ph-shopping-cart text-xl text-khatulistiwaGold"></i>
-        <span class="hidden sm:inline">Keranjang</span>
-        <span id="cart-count" class="bg-khatulistiwaGold text-khatulistiwaDark text-xs font-extrabold px-2 py-0.5 rounded-full ml-1">0</span>
-      </button>
-
-    </div>
-  </header>
-
-  <!-- Section Beranda (Hero) -->
-  <section id="beranda" class="relative bg-gradient-to-br from-khatulistiwaDark via-khatulistiwaGreen to-emerald-800 text-white py-16 md:py-24 overflow-hidden">
-    <div class="absolute top-0 left-0 w-full h-1.5 bg-khatulistiwaGold"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-10">
-      
-      <div class="flex-1 space-y-6 text-center md:text-left">
-        <span class="inline-block bg-emerald-900/80 border border-khatulistiwaGold/40 text-khatulistiwaGold text-xs font-extrabold uppercase px-4 py-1.5 rounded-full tracking-widest">
-          Rumah Kedua Anak Rantau di Cairo
-        </span>
-        <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight">
-          Cita Rasa Autentik <br/><span class="text-khatulistiwaGold">Nusantara di Mesir</span>
-        </h1>
-        <p class="text-emerald-100 text-base sm:text-lg max-w-xl">
-          Menyajikan aneka olahan Ayam, Seblak, Kwetiau, hingga Tomyum dengan bahan-bahan fresh setiap hari. Rasakan kehangatan masakan rumah di tanah perantauan.
-        </p>
-        <div class="pt-2 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-          <a href="#menu" class="bg-khatulistiwaGold hover:bg-amber-400 text-khatulistiwaDark font-black px-8 py-3.5 rounded-full text-base transition shadow-lg text-center">
-            Pesan Menu Sekarang
-          </a>
-          <a href="https://wa.me/201515041807" target="_blank" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-6 py-3.5 rounded-full text-base transition flex items-center justify-center gap-2">
-            <i class="ph ph-whatsapp-logo text-xl text-emerald-400"></i>
-            <span>Chat WA Langsung</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Hero Image -->
-      <div class="flex-1 flex justify-center">
-        <div class="relative w-80 h-80 sm:w-[420px] sm:h-[320px] rounded-3xl overflow-hidden border-4 border-khatulistiwaGold/50 shadow-2xl">
-          <img src="new menu 2.jpeg" alt="Sajian Khatulistiwa Resto" class="w-full h-full object-cover">
-          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-center">
-            <p class="text-khatulistiwaGold font-bold text-sm">Fresh Ingredients Every Day</p>
-            <p class="text-xs text-gray-200">100% Halal & Autentik Indonesia</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Section Menu Produk -->
-  <section id="menu" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-black text-khatulistiwaGreen uppercase tracking-tight">Menu Produk Kami</h2>
-      <div class="w-24 h-1 bg-khatulistiwaGold mx-auto mt-2 rounded-full"></div>
-      <p class="text-gray-600 mt-3">Klik tombol <span class="font-bold text-khatulistiwaGreen">+ Tambah</span> untuk memasukkan pilihan ke keranjang belanja</p>
-    </div>
-
-    <!-- Category 1: Nasi + Ayam -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-bowl-food text-2xl text-khatulistiwaGreen"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Menu Dinner: Nasi + Ayam</h3>
-      </div>
-      <p class="text-xs bg-emerald-100 text-khatulistiwaDark font-semibold px-3 py-1.5 rounded-lg mb-4 inline-block">
-        *Keterangan: Sudah termasuk Sambal, Kuah Bening, dan Lalapan Timun
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ayam-container"></div>
-    </div>
-
-    <!-- Category 2: Seblak Khatulistiwa -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-fire text-2xl text-red-600"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Seblak Khatulistiwa</h3>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="seblak-container"></div>
-    </div>
-
-    <!-- Category 3: Kwetiau Khatulistiwa -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-cooking-pot text-2xl text-khatulistiwaGreen"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Kwetiau Khatulistiwa</h3>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="kwetiau-container"></div>
-    </div>
-
-    <!-- Category 4: Nasi + Ikan -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-fish text-2xl text-blue-600"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Nasi + Ikan</h3>
-      </div>
-      <p class="text-xs bg-emerald-100 text-khatulistiwaDark font-semibold px-3 py-1.5 rounded-lg mb-4 inline-block">
-        *Keterangan: Sudah termasuk Sambal, Kuah Bening, dan Lalapan Timun
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ikan-container"></div>
-    </div>
-
-    <!-- Category 5: Soup Tomyum -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-drop text-2xl text-amber-600"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Soup Tomyum</h3>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="tomyum-container"></div>
-    </div>
-
-    <!-- Category 6: Ekstra Makanan -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-plus-circle text-2xl text-khatulistiwaGreen"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Ekstra Topping / Lauk</h3>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ekstra-container"></div>
-    </div>
-
-    <!-- Category 7: Cemilan -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-cookie text-2xl text-amber-700"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Cemilan</h3>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cemilan-container"></div>
-    </div>
-
-    <!-- Category 8: Minuman -->
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-6 pb-2 border-b-2 border-khatulistiwaGreen">
-        <i class="ph ph-coffee text-2xl text-emerald-600"></i>
-        <h3 class="text-2xl font-black text-khatulistiwaGreen">Minuman (Classic & Premium)</h3>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="minuman-container"></div>
-    </div>
-
-  </section>
-
-  <!-- Section Tentang Kami -->
-  <section id="tentang" class="bg-white py-16 border-y border-stone-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-khatulistiwaBg p-8 sm:p-12 rounded-3xl border border-emerald-100 shadow-sm text-center space-y-4">
-        <h2 class="text-3xl font-black text-khatulistiwaGreen">Tentang Khatulistiwa Resto</h2>
-        <p class="text-gray-700 leading-relaxed">
-          <strong>Khatulistiwa Resto</strong> hadir di jantung Cairo sebagai rumah kedua untuk anak rantau dan pecinta kuliner Indonesia. Kami hadir untuk menjawab semua kebutuhan kalian akan rasa yang autentik dan cita rasa yang khas. 
-        </p>
-        <p class="text-gray-700 leading-relaxed">
-          Kami selalu menyajikan hidangan dengan bahan-bahan fresh setiap harinya. Nama <em class="text-khatulistiwaGreen font-bold">"Khatulistiwa"</em> dipilih karena titik temu rasa yang akan membuat kalian merasa serasa berada di rumah sendiri.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Kontak Kami -->
-  <section id="kontak" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-black text-khatulistiwaGreen uppercase tracking-tight">Kontak & Lokasi Kami</h2>
-      <div class="w-20 h-1 bg-khatulistiwaGold mx-auto mt-2 rounded-full"></div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Detail Kontak -->
-      <div class="bg-khatulistiwaGreen text-white p-8 rounded-3xl shadow-lg space-y-6 flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-bold text-khatulistiwaGold mb-4">Hubungi Khatulistiwa Resto</h3>
-          <p class="text-emerald-100 text-sm mb-6">Silakan hubungi kami untuk informasi pesanan, catering, atau reservasi tempat.</p>
-          
-          <div class="space-y-4 text-sm">
-            <div class="flex items-start gap-4">
-              <i class="ph ph-whatsapp-logo text-2xl text-khatulistiwaGold shrink-0"></i>
-              <div>
-                <p class="font-bold">WhatsApp / Telepon:</p>
-                <a href="https://wa.me/201515041807" target="_blank" class="hover:underline text-emerald-200">+20 15 15 041807</a>
-              </div>
+    <!-- Header & Navigasi -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <h1>KHATULISTIWA RESTO</h1>
             </div>
-
-            <div class="flex items-start gap-4">
-              <i class="ph ph-instagram-logo text-2xl text-khatulistiwaGold shrink-0"></i>
-              <div>
-                <p class="font-bold">Instagram:</p>
-                <a href="https://instagram.com/khatulistiwa.egy" target="_blank" class="hover:underline text-emerald-200">@khatulistiwa.egy</a>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <i class="ph ph-tiktok-logo text-2xl text-khatulistiwaGold shrink-0"></i>
-              <div>
-                <p class="font-bold">TikTok:</p>
-                <a href="https://tiktok.com/@khatulistiwa.egyp" target="_blank" class="hover:underline text-emerald-200">@khatulistiwa.egyp</a>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <i class="ph ph-map-pin text-2xl text-khatulistiwaGold shrink-0"></i>
-              <div>
-                <p class="font-bold">Alamat Resto:</p>
-                <p class="text-emerald-200 leading-snug">27 Dr Ibrahim Abou El-Naga, Al Hadiqah Ad Dawleyah, Qesm Than Madinet Nasr, Cairo Governorate 4441280, Egypt</p>
-              </div>
-            </div>
-          </div>
+            <nav>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#tentang">Tentang Kami</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <a href="https://wa.me/201515041807" target="_blank" class="bg-khatulistiwaGold text-khatulistiwaDark text-center font-black py-3.5 rounded-full hover:bg-amber-400 transition block mt-6">
-          Chat WhatsApp Sekarang
+    <!-- Beranda / Hero Section -->
+    <section id="beranda" class="hero">
+        <h2>Rumah Kedua Untuk Anak Rantau & Pecinta Kuliner</h2>
+        <p>Menyajikan cita rasa autentik Nusantara di jantung kota Cairo dengan bahan-bahan fresh setiap harinya.</p>
+        <a href="https://wa.me/201515041807" target="_blank" class="btn-wa-hero">
+            <i class="fab fa-whatsapp">
+            Pesan via WhatsApp (+20 15 15 041807)
         </a>
-      </div>
+    </section>
 
-      <!-- Lokasi / Embed Info -->
-      <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-md flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl font-bold text-khatulistiwaGreen mb-2">Lokasi Strategis Nasr City</h3>
-          <p class="text-sm text-gray-600 mb-4">Temukan kami dengan mudah di kawasan Madinet Nasr, Cairo.</p>
-          <div class="w-full h-64 bg-emerald-50 rounded-2xl flex flex-col items-center justify-center p-6 text-center border border-emerald-200">
-            <i class="ph ph-map-trifold text-5xl text-khatulistiwaGreen mb-2"></i>
-            <p class="font-bold text-khatulistiwaGreen">Nasr City, Cairo, Egypt</p>
-            <p class="text-xs text-gray-500 mt-1">27 Dr Ibrahim Abou El-Naga, Al Hadiqah Ad Dawleyah</p>
-          </div>
+    <!-- Pilihan Layanan -->
+    <div class="service-type">
+        <h3>Pilih Tipe Pesanan Anda:</h3>
+        <div class="service-options">
+            <button class="service-btn active" onclick="setService('Dine In', this)">Dine In (Makan di Tempat)</button>
+            <button class="service-btn" onclick="setService('Tausil / Delivery', this)">Tausil (Delivery)</button>
+            <button class="service-btn" onclick="setService('Take Away', this)">Take Away (Bawa Pulang)</button>
         </div>
-        <div class="mt-6">
-          <a href="https://maps.google.com/?q=27+Dr+Ibrahim+Abou+El-Naga+Cairo" target="_blank" class="w-full bg-emerald-100 hover:bg-emerald-200 text-khatulistiwaGreen font-bold py-3 rounded-xl transition text-center block text-sm">
-            Buka Petunjuk Jalan (Google Maps)
-          </a>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <!-- Sidebar Keranjang Belanja (Drawer) -->
-  <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity opacity-0 pointer-events-none">
-    <div class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="cart-content">
-      
-      <div class="p-6 bg-khatulistiwaGreen text-white flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <i class="ph ph-shopping-cart-simple text-2xl text-khatulistiwaGold"></i>
-          <h3 class="text-lg font-bold">Keranjang Pesanan</h3>
-        </div>
-        <button onclick="toggleCart()" class="text-white hover:text-khatulistiwaGold text-2xl">
-          <i class="ph ph-x"></i>
-        </button>
-      </div>
+    <!-- Menu Produk -->
+    <section id="menu" class="container">
+        <h2 class="section-title">Menu Produk</h2>
 
-      <div id="cart-items" class="p-6 flex-1 overflow-y-auto space-y-4"></div>
-
-      <div class="p-6 border-t border-gray-100 bg-gray-50 space-y-4">
-        <div class="flex justify-between items-center text-lg font-extrabold text-khatulistiwaGreen">
-          <span>Total Estimasi:</span>
-          <span id="cart-total">0 LE</span>
-        </div>
-        
-        <!-- Form Informasi Pemesan & Tipe Pesanan -->
-        <div class="space-y-3">
-          <input type="text" id="cust-name" placeholder="Nama Pemesan" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen">
-          
-          <!-- Pilihan Tipe Pesanan -->
-          <div>
-            <label class="block text-xs font-bold text-gray-700 mb-1">Tipe Pesanan:</label>
-            <select id="order-type" onchange="handleOrderTypeChange()" class="w-full px-4 py-2 border rounded-xl text-sm font-semibold bg-white focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen">
-              <option value="Dine In">Dine In (Makan di Tempat)</option>
-              <option value="Tausil / Delivery">Tausil (Delivery)</option>
-              <option value="Take Away">Take Away (Bungkus)</option>
-            </select>
-          </div>
-
-          <!-- Input Dinamis Nomor Meja / Alamat -->
-          <div id="table-no-container">
-            <input type="text" id="cust-table" placeholder="Nomor Meja (Contoh: Meja 05)" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen">
-          </div>
-
-          <div id="address-container" class="hidden">
-            <textarea id="cust-address" placeholder="Alamat Lengkap Pengiriman (Tausil)" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen h-16 resize-none"></textarea>
-          </div>
-
-          <textarea id="cust-notes" placeholder="Catatan Tambahan (Misal: Pedas/Nasi Gaol)" class="w-full px-4 py-2 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-khatulistiwaGreen h-16 resize-none"></textarea>
-        </div>
-
-        <button onclick="checkoutToWA()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg">
-          <i class="ph ph-whatsapp-logo text-2xl"></i>
-          <span>Pesan via WhatsApp</span>
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="bg-khatulistiwaDark text-emerald-200 py-10 border-t-4 border-khatulistiwaGold">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-      <div class="text-2xl font-black text-khatulistiwaGold">KHATULISTIWA RESTO CAIRO</div>
-      <p class="text-xs text-emerald-300 max-w-md mx-auto">Menyajikan makanan khas Nusantara autentik dengan bahan-bahan terbaik di Madinet Nasr, Cairo.</p>
-      <div class="text-xs text-emerald-400 pt-4 border-t border-emerald-900">
-        &copy; 2026 Khatulistiwa Resto Cairo. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating Button Mobile -->
-  <div class="fixed bottom-4 left-4 right-4 md:hidden z-30">
-    <button onclick="toggleCart()" class="w-full bg-khatulistiwaGreen text-white font-bold py-3 rounded-full shadow-2xl flex items-center justify-between px-6 border border-khatulistiwaGold">
-      <div class="flex items-center gap-2">
-        <i class="ph ph-shopping-bag text-xl text-khatulistiwaGold"></i>
-        <span>Lihat Keranjang</span>
-      </div>
-      <span id="mobile-cart-badge" class="bg-khatulistiwaGold text-khatulistiwaDark px-2.5 py-0.5 rounded-full text-xs font-black">0 Item</span>
-    </button>
-  </div>
-
-  <script>
-    // URL Google Apps Script Web App (Ganti dengan Web App URL dari Google Sheets Anda)
-    const GOOGLE_SHEET_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
-
-    // DATA MENU
-    const allProducts = [
-      // Ayam
-      { id: 'a1', name: 'Nasi Putih/Gaol + Ayam Bakar', price: 90, cat: 'ayam' },
-      { id: 'a2', name: 'Nasi Putih/Gaol + Ayam Ketumbar', price: 90, cat: 'ayam' },
-      { id: 'a3', name: 'Nasi Putih/Gaol + Ayam Goreng', price: 90, cat: 'ayam' },
-      { id: 'a4', name: 'Nasi Putih/Gaol + Ayam Krispy', price: 90, cat: 'ayam' },
-      { id: 'a5', name: 'Nasi Putih/Gaol + Ayam Geprek', price: 90, cat: 'ayam' },
-      
-      // Seblak
-      { id: 's1', name: 'Seblak Komplit', price: 110, cat: 'seblak' },
-      { id: 's2', name: 'Seblak Ceker', price: 75, cat: 'seblak' },
-      { id: 's3', name: 'Seblak Tulang', price: 75, cat: 'seblak' },
-      { id: 's4', name: 'Seblak Mie Telor', price: 75, cat: 'seblak' },
-      { id: 's5', name: 'Seblak Mie', price: 65, cat: 'seblak' },
-      
-      // Kwetiau
-      { id: 'k1', name: 'Kwetiau Ori', price: 85, cat: 'kwetiau' },
-      { id: 'k2', name: 'Kwetiau Telur', price: 95, cat: 'kwetiau' },
-      { id: 'k3', name: 'Kwetiau Ayam', price: 100, cat: 'kwetiau' },
-      { id: 'k4', name: 'Kwetiau Sapi', price: 110, cat: 'kwetiau' },
-      
-      // Ikan
-      { id: 'i1', name: 'Nasi Putih/Gaol + Ikan Goreng', price: 85, cat: 'ikan' },
-      { id: 'i2', name: 'Nasi Putih/Gaol + Ikan Bakar', price: 85, cat: 'ikan' },
-      
-      // Tomyum
-      { id: 't1', name: 'Soup Mee Tomyum', price: 70, cat: 'tomyum' },
-      { id: 't2', name: 'Soup Mee Tomyum Ayam', price: 80, cat: 'tomyum' },
-      { id: 't3', name: 'Soup Tomyum Ayam', price: 100, cat: 'tomyum' },
-      { id: 't4', name: 'Soup Tomyum Sapi', price: 110, cat: 'tomyum' },
-      
-      // Ekstra
-      { id: 'e1', name: 'Telur', price: 10, cat: 'ekstra' },
-      { id: 'e2', name: 'Mie', price: 10, cat: 'ekstra' },
-      { id: 'e3', name: 'Nasi Putih/Gaol', price: 15, cat: 'ekstra' },
-      { id: 'e4', name: 'Sambal Merah / Chili Padi', price: 15, cat: 'ekstra' },
-      { id: 'e5', name: 'Ceker 1 pcs', price: 13, cat: 'ekstra' },
-      { id: 'e6', name: 'Ceker 3 pcs', price: 35, cat: 'ekstra' },
-      
-      // Cemilan
-      { id: 'c1', name: 'Dimsum Goreng Ori (isi 5 pcs)', price: 80, cat: 'cemilan' },
-      { id: 'c2', name: 'Dimsum Goreng Mozzarella (isi 4 pcs)', price: 90, cat: 'cemilan' },
-      { id: 'c3', name: 'Dimsum Goreng Combo (3 Ori & 2 Moza)', price: 100, cat: 'cemilan' },
-      { id: 'c4', name: 'Pisang Goreng Khatulistiwa (isi 8 pcs)', price: 65, cat: 'cemilan' },
-      { id: 'c5', name: 'Ceker Mercon (isi 5 pcs)', price: 60, cat: 'cemilan' },
-      
-      // Minuman
-      { id: 'm1', name: 'Tea (Hot 20 / Cold 25 LE)', price: 25, cat: 'minuman' },
-      { id: 'm2', name: 'Lemon (Hot 20 / Cold 25 LE)', price: 25, cat: 'minuman' },
-      { id: 'm3', name: 'Lemon Tea (Hot 25 / Cold 30 LE)', price: 30, cat: 'minuman' },
-      { id: 'm4', name: 'Susu (Hot 30 / Cold 35 LE)', price: 35, cat: 'minuman' },
-      { id: 'm5', name: 'Es Bandung (Cold)', price: 40, cat: 'minuman' },
-      { id: 'm6', name: 'Nescafe (Hot 30 / Cold 35 LE)', price: 35, cat: 'minuman' },
-      { id: 'm7', name: 'Kopi Hitam (Hot)', price: 35, cat: 'minuman' },
-      { id: 'm8', name: 'Kopi Susu (Hot 40 / Cold 45 LE)', price: 45, cat: 'minuman' },
-      { id: 'm9', name: 'Faransawi (Hot)', price: 45, cat: 'minuman' },
-      { id: 'm10', name: 'Thai Tea', price: 65, cat: 'minuman' },
-      { id: 'm11', name: 'Green Tea', price: 65, cat: 'minuman' },
-      { id: 'm12', name: 'Matcha', price: 80, cat: 'minuman' },
-      { id: 'm13', name: 'Matcha Strawberry', price: 90, cat: 'minuman' },
-      { id: 'm14', name: 'Redvelvet', price: 80, cat: 'minuman' },
-      { id: 'm15', name: 'Dark Chocolate', price: 80, cat: 'minuman' },
-      { id: 'm16', name: 'Kopi Susu Khatulistiwa', price: 60, cat: 'minuman' },
-      { id: 'm17', name: 'Kopi Susu Gula Aren', price: 70, cat: 'minuman' },
-      { id: 'm18', name: 'Ekstra Boba', price: 25, cat: 'minuman' },
-      { id: 'm19', name: 'Ekstra Jelly', price: 15, cat: 'minuman' }
-    ];
-
-    let cart = [];
-
-    // Render Clean Card tanpa Foto
-    function renderMenuCategory(category, containerId) {
-      const container = document.getElementById(containerId);
-      const items = allProducts.filter(p => p.cat === category);
-      
-      container.innerHTML = items.map(item => `
-        <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition flex items-center justify-between">
-          <div>
-            <h4 class="font-bold text-gray-800 text-base">${item.name}</h4>
-            <span class="font-black text-khatulistiwaGreen text-lg block mt-1">${item.price} LE</span>
-          </div>
-          <button onclick="addToCart('${item.id}')" class="bg-khatulistiwaGreen hover:bg-khatulistiwaDark text-white font-bold text-xs px-4 py-2.5 rounded-xl transition flex items-center gap-1 shrink-0 ml-4">
-            <i class="ph ph-plus text-sm"></i> Tambah
-          </button>
-        </div>
-      `).join('');
-    }
-
-    // Initialize
-    window.onload = function() {
-      renderMenuCategory('ayam', 'ayam-container');
-      renderMenuCategory('seblak', 'seblak-container');
-      renderMenuCategory('kwetiau', 'kwetiau-container');
-      renderMenuCategory('ikan', 'ikan-container');
-      renderMenuCategory('tomyum', 'tomyum-container');
-      renderMenuCategory('ekstra', 'ekstra-container');
-      renderMenuCategory('cemilan', 'cemilan-container');
-      renderMenuCategory('minuman', 'minuman-container');
-    };
-
-    // Handler Tipe Pesanan
-    function handleOrderTypeChange() {
-      const orderType = document.getElementById('order-type').value;
-      const tableContainer = document.getElementById('table-no-container');
-      const addressContainer = document.getElementById('address-container');
-
-      if (orderType === 'Dine In') {
-        tableContainer.classList.remove('hidden');
-        addressContainer.classList.add('hidden');
-      } else if (orderType === 'Tausil / Delivery') {
-        tableContainer.classList.add('hidden');
-        addressContainer.classList.remove('hidden');
-      } else {
-        // Take Away
-        tableContainer.classList.add('hidden');
-        addressContainer.classList.add('hidden');
-      }
-    }
-
-    // Cart System
-    function addToCart(id) {
-      const product = allProducts.find(p => p.id === id);
-      const existing = cart.find(item => item.id === id);
-
-      if(existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({...product, qty: 1});
-      }
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      const cartItemsContainer = document.getElementById('cart-items');
-      const cartCount = document.getElementById('cart-count');
-      const mobileBadge = document.getElementById('mobile-cart-badge');
-      const cartTotal = document.getElementById('cart-total');
-
-      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
-      cartCount.innerText = totalItems;
-      mobileBadge.innerText = totalItems + ' Item';
-      cartTotal.innerText = totalPrice + ' LE';
-
-      if(cart.length === 0) {
-        cartItemsContainer.innerHTML = `
-          <div class="text-center py-12 text-gray-400">
-            <i class="ph ph-shopping-cart text-5xl mb-2"></i>
-            <p>Keranjang Anda masih kosong</p>
-          </div>
-        `;
-      } else {
-        cartItemsContainer.innerHTML = cart.map(item => `
-          <div class="flex items-center justify-between border-b pb-3">
-            <div>
-              <p class="font-bold text-sm text-gray-800">${item.name}</p>
-              <p class="text-xs text-khatulistiwaGreen font-bold">${item.price} LE x ${item.qty}</p>
+        <!-- Nasi + Ayam -->
+        <div class="category-header">Nasi + Ayam</div>
+        <p style="margin-bottom: 10px; font-style: italic; color: #555;">Keterangan: Termasuk Sambal, Kuah Bening, & Lalapan Timun</p>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Ayam Bakar">
+                <div class="menu-info">
+                    <div class="menu-title">Nasi putih/gaol + Ayam Bakar</div>
+                    <div class="menu-price">90 LE</div>
+                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ayam Bakar', 90)">+ Tambah ke Keranjang</button>
+                </div>
             </div>
-            <div class="flex items-center gap-2">
-              <button onclick="changeQty('${item.id}', -1)" class="w-7 h-7 bg-gray-100 rounded-lg font-bold text-gray-600">-</button>
-              <span class="text-sm font-bold">${item.qty}</span>
-              <button onclick="changeQty('${item.id}', 1)" class="w-7 h-7 bg-emerald-100 text-khatulistiwaGreen rounded-lg font-bold">+</button>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Ayam Ketumbar">
+                <div class="menu-info">
+                    <div class="menu-title">Nasi putih/gaol + Ayam Ketumbar</div>
+                    <div class="menu-price">90 LE</div>
+                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ayam Ketumbar', 90)">+ Tambah ke Keranjang</button>
+                </div>
             </div>
-          </div>
-        `).join('');
-      }
-    }
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Ayam Goreng">
+                <div class="menu-info">
+                    <div class="menu-title">Nasi putih/gaol + Ayam Goreng</div>
+                    <div class="menu-price">90 LE</div>
+                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ayam Goreng', 90)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://visitingjogja.jogjaprov.go.id/37710/nikmatnya-ayam-goreng-cak-yunus-legendaris/" class="menu-img" alt="Ayam Krispy" onerror="this.src='https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=80'">
+                <div class="menu-info">
+                    <div class="menu-title">Nasi putih/gaol + Ayam Krispy</div>
+                    <div class="menu-price">90 LE</div>
+                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ayam Krispy', 90)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://www.instagram.com/p/DXYd1dXE9s0/" class="menu-img" alt="Ayam Geprek" onerror="this.src='https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80'">
+                <div class="menu-info">
+                    <div class="menu-title">Nasi putih/gaol + Ayam Geprek</div>
+                    <div class="menu-price">90 LE</div>
+                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ayam Geprek', 90)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
 
-    function changeQty(id, change) {
-      const item = cart.find(p => p.id === id);
-      if(item) {
-        item.qty += change;
-        if(item.qty <= 0) {
-          cart = cart.filter(p => p.id !== id);
+        <!-- Seblak Khatulistiwa -->
+        <div class="category-header">Seblak Khatulistiwa</div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Seblak Komplit">
+                <div class="menu-info">
+                    <div class="menu-title">Seblak Komplit</div>
+                    <div class="menu-price">110 LE</div>
+                    <button class="btn-add" onclick="addToCart('Seblak Komplit', 110)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Seblak Ceker">
+                <div class="menu-info">
+                    <div class="menu-title">Seblak Ceker</div>
+                    <div class="menu-price">75 LE</div>
+                    <button class="btn-add" onclick="addToCart('Seblak Ceker', 75)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Seblak Tulang">
+                <div class="menu-info">
+                    <div class="menu-title">Seblak Tulang</div>
+                    <div class="menu-price">75 LE</div>
+                    <button class="btn-add" onclick="addToCart('Seblak Tulang', 75)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Seblak Mie Telor">
+                <div class="menu-info">
+                    <div class="menu-title">Seblak Mie Telor</div>
+                    <div class="menu-price">75 LE</div>
+                    <button class="btn-add" onclick="addToCart('Seblak Mie Telor', 75)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Seblak Mie">
+                <div class="menu-info">
+                    <div class="menu-title">Seblak Mie</div>
+                    <div class="menu-price">65 LE</div>
+                    <button class="btn-add" onclick="addToCart('Seblak Mie', 65)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kwetiau Khatulistiwa -->
+        <div class="category-header">Kwetiau Khatulistiwa</div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Kwetiau Ori">
+                <div class="menu-info">
+                    <div class="menu-title">Kwetiau Ori</div>
+                    <div class="menu-price">85 LE</div>
+                    <button class="btn-add" onclick="addToCart('Kwetiau Ori', 85)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Kwetiau Telur">
+                <div class="menu-info">
+                    <div class="menu-title">Kwetiau Telur</div>
+                    <div class="menu-price">95 LE</div>
+                    <button class="btn-add" onclick="addToCart('Kwetiau Telur', 95)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Kwetiau Ayam">
+                <div class="menu-info">
+                    <div class="menu-title">Kwetiau Ayam</div>
+                    <div class="menu-price">100 LE</div>
+                    <button class="btn-add" onclick="addToCart('Kwetiau Ayam', 100)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Kwetiau Sapi">
+                <div class="menu-info">
+                    <div class="menu-title">Kwetiau Sapi</div>
+                    <div class="menu-price">110 LE</div>
+                    <button class="btn-add" onclick="addToCart('Kwetiau Sapi', 110)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nasi + Ikan -->
+        <div class="category-header">Nasi + Ikan</div>
+        <p style="margin-bottom: 10px; font-style: italic; color: #555;">Keterangan: Termasuk Sambal, Kuah Bening, & Lalapan Timun</p>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Ikan Goreng">
+                <div class="menu-info">
+                    <div class="menu-title">Nasi putih/gaol + Ikan Goreng</div>
+                    <div class="menu-price">85 LE</div>
+                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ikan Goreng', 85)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Ikan Bakar">
+                <div class="menu-info">
+                    <div class="menu-title">Nasi putih/gaol + Ikan Bakar</div>
+                    <div class="menu-price">85 LE</div>
+                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ikan Bakar', 85)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Soup Tomyum -->
+        <div class="category-header">Soup Tomyum</div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Soup Mee Tomyum">
+                <div class="menu-info">
+                    <div class="menu-title">Soup Mee Tomyum</div>
+                    <div class="menu-price">70 LE</div>
+                    <button class="btn-add" onclick="addToCart('Soup Mee Tomyum', 70)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Soup Mee Tomyum Ayam">
+                <div class="menu-info">
+                    <div class="menu-title">Soup Mee Tomyum Ayam</div>
+                    <div class="menu-price">80 LE</div>
+                    <button class="btn-add" onclick="addToCart('Soup Mee Tomyum Ayam', 80)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Soup Tomyum Ayam">
+                <div class="menu-info">
+                    <div class="menu-title">Soup Tomyum Ayam</div>
+                    <div class="menu-price">100 LE</div>
+                    <button class="btn-add" onclick="addToCart('Soup Tomyum Ayam', 100)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Soup Tomyum Sapi">
+                <div class="menu-info">
+                    <div class="menu-title">Soup Tomyum Sapi</div>
+                    <div class="menu-price">110 LE</div>
+                    <button class="btn-add" onclick="addToCart('Soup Tomyum Sapi', 110)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ekstra Makanan -->
+        <div class="category-header">Ekstra</div>
+        <div class="menu-grid">
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Telur</div><div class="menu-price">10 LE</div><button class="btn-add" onclick="addToCart('Ekstra Telur', 10)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Mie</div><div class="menu-price">10 LE</div><button class="btn-add" onclick="addToCart('Ekstra Mie', 10)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Nasi putih/gaol</div><div class="menu-price">15 LE</div><button class="btn-add" onclick="addToCart('Ekstra Nasi putih/gaol', 15)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Sambal merah/chili padi</div><div class="menu-price">15 LE</div><button class="btn-add" onclick="addToCart('Ekstra Sambal merah/chili padi', 15)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Ceker (1 pcs)</div><div class="menu-price">13 LE</div><button class="btn-add" onclick="addToCart('Ekstra Ceker 1pcs', 13)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Ceker (3 pcs)</div><div class="menu-price">35 LE</div><button class="btn-add" onclick="addToCart('Ekstra Ceker 3pcs', 35)">+ Tambah</button></div></div>
+        </div>
+
+        <!-- Cemilan -->
+        <div class="category-header">Cemilan</div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div class="menu-info">
+                    <div class="menu-title">Dimsum goreng ori (isi 5 pcs)</div>
+                    <div class="menu-price">80 LE</div>
+                    <button class="btn-add" onclick="addToCart('Dimsum goreng ori (5 pcs)', 80)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-info">
+                    <div class="menu-title">Dimsum goreng mozzarella (isi 4 pcs)</div>
+                    <div class="menu-price">90 LE</div>
+                    <button class="btn-add" onclick="addToCart('Dimsum goreng mozzarella (4 pcs)', 90)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-info">
+                    <div class="menu-title">Dimsum goreng combo (isi 3 ori & 2 moza)</div>
+                    <div class="menu-price">100 LE</div>
+                    <button class="btn-add" onclick="addToCart('Dimsum goreng combo', 100)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://ar.pinterest.com/pin/622833823503586808/" class="menu-img" alt="Pisang Goreng" onerror="this.src='https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=500&q=80'">
+                <div class="menu-info">
+                    <div class="menu-title">Pisang goreng khatulistiwa (isi 8 pcs)</div>
+                    <div class="menu-price">65 LE</div>
+                    <button class="btn-add" onclick="addToCart('Pisang goreng khatulistiwa (8 pcs)', 65)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://shopee.co.id/OSENG-MERCON-CEKER-CEKER-AYAM-PEDAS-i.55583106.22077922122" class="menu-img" alt="Ceker Mercon" onerror="this.src='https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=80'">
+                <div class="menu-info">
+                    <div class="menu-title">Ceker mercon (isi 5 pcs)</div>
+                    <div class="menu-price">60 LE</div>
+                    <button class="btn-add" onclick="addToCart('Ceker mercon (5 pcs)', 60)">+ Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Minuman Classic -->
+        <div class="category-header">Minuman - Classic Drink (Hot / Cold)</div>
+        <div class="menu-grid">
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Tea (Hot)</div><div class="menu-price">20 LE</div><button class="btn-add" onclick="addToCart('Tea (Hot)', 20)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Tea (Cold)</div><div class="menu-price">25 LE</div><button class="btn-add" onclick="addToCart('Tea (Cold)', 25)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Lemon (Hot)</div><div class="menu-price">20 LE</div><button class="btn-add" onclick="addToCart('Lemon (Hot)', 20)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Lemon (Cold)</div><div class="menu-price">25 LE</div><button class="btn-add" onclick="addToCart('Lemon (Cold)', 25)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Lemon Tea (Hot)</div><div class="menu-price">25 LE</div><button class="btn-add" onclick="addToCart('Lemon Tea (Hot)', 25)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Lemon Tea (Cold)</div><div class="menu-price">30 LE</div><button class="btn-add" onclick="addToCart('Lemon Tea (Cold)', 30)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Susu (Hot)</div><div class="menu-price">30 LE</div><button class="btn-add" onclick="addToCart('Susu (Hot)', 30)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Susu (Cold)</div><div class="menu-price">35 LE</div><button class="btn-add" onclick="addToCart('Susu (Cold)', 35)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Es Bandung</div><div class="menu-price">40 LE</div><button class="btn-add" onclick="addToCart('Es Bandung', 40)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Nescafe (Hot)</div><div class="menu-price">30 LE</div><button class="btn-add" onclick="addToCart('Nescafe (Hot)', 30)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Nescafe (Cold)</div><div class="menu-price">35 LE</div><button class="btn-add" onclick="addToCart('Nescafe (Cold)', 35)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Kopi Hitam (Hot)</div><div class="menu-price">35 LE</div><button class="btn-add" onclick="addToCart('Kopi Hitam (Hot)', 35)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Kopi Susu (Hot)</div><div class="menu-price">40 LE</div><button class="btn-add" onclick="addToCart('Kopi Susu (Hot)', 40)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Kopi Susu (Cold)</div><div class="menu-price">45 LE</div><button class="btn-add" onclick="addToCart('Kopi Susu (Cold)', 45)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Faransawi (Hot)</div><div class="menu-price">45 LE</div><button class="btn-add" onclick="addToCart('Faransawi (Hot)', 45)">+ Tambah</button></div></div>
+        </div>
+
+        <!-- Minuman Premium -->
+        <div class="category-header">Minuman - Premium Drink</div>
+        <div class="menu-grid">
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Thai Tea</div><div class="menu-price">65 LE</div><button class="btn-add" onclick="addToCart('Thai Tea', 65)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Green Tea</div><div class="menu-price">65 LE</div><button class="btn-add" onclick="addToCart('Green Tea', 65)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Matcha</div><div class="menu-price">80 LE</div><button class="btn-add" onclick="addToCart('Matcha', 80)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Matcha Strawberry</div><div class="menu-price">90 LE</div><button class="btn-add" onclick="addToCart('Matcha Strawberry', 90)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Redvelvet</div><div class="menu-price">80 LE</div><button class="btn-add" onclick="addToCart('Redvelvet', 80)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Dark Chocolate</div><div class="menu-price">80 LE</div><button class="btn-add" onclick="addToCart('Dark Chocolate', 80)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Kopi Susu Khatulistiwa</div><div class="menu-price">60 LE</div><button class="btn-add" onclick="addToCart('Kopi Susu Khatulistiwa', 60)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Kopi Susu Gula Aren</div><div class="menu-price">70 LE</div><button class="btn-add" onclick="addToCart('Kopi Susu Gula Aren', 70)">+ Tambah</button></div></div>
+        </div>
+
+        <!-- Ekstra Minuman -->
+        <div class="category-header">Ekstra Minuman</div>
+        <div class="menu-grid">
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Topping Boba</div><div class="menu-price">25 LE</div><button class="btn-add" onclick="addToCart('Topping Boba', 25)">+ Tambah</button></div></div>
+            <div class="menu-card"><div class="menu-info"><div class="menu-title">Topping Jelly</div><div class="menu-price">15 LE</div><button class="btn-add" onclick="addToCart('Topping Jelly', 15)">+ Tambah</button></div></div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="tentang" class="container">
+        <h2 class="section-title">Tentang Kami</h2>
+        <div class="about-card">
+            <p><strong>Khatulistiwa Resto</strong> hadir di jantung Cairo sebagai rumah kedua untuk anak rantau dan pecinta kuliner. Kami hadir untuk menjawab semua kebutuhan kalian dengan rasa yang autentik, cita rasa yang khas, serta disajikan menggunakan bahan-bahan fresh setiap harinya. Nama <strong>“Khatulistiwa”</strong> dipilih karena titik temu rasa yang akan membuat kalian merasa berada di rumah sendiri.</p>
+        </div>
+    </section>
+
+    <!-- Kontak Kami -->
+    <section id="kontak" class="container">
+        <h2 class="section-title">Kontak Kami</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fab fa-instagram"></i>
+                <h3>Instagram</h3>
+                <p><a href="https://instagram.com/khatulistiwa.egy" target="_blank">@khatulistiwa.egy</a></p>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-tiktok"></i>
+                <h3>TikTok</h3>
+                <p><a href="https://tiktok.com/@khatulistiwa.egyp" target="_blank">@khatulistiwa.egyp</a></p>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp / Telepon</h3>
+                <p><a href="https://wa.me/201515041807" target="_blank">+20 15 15 041807</a></p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Alamat</h3>
+                <p>27 Dr Ibrahim Abou El-Naga, Al Hadiqah Ad Dawleyah, Qesm Than Madinet Nasr, Cairo Governorate 4441280</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Cart Button -->
+    <div class="cart-float" onclick="openCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Keranjang</span>
+        <span class="cart-badge" id="cart-count">0</span>
+    </div>
+
+    <!-- Modal Keranjang Belanja -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Keranjang Pesanan</h3>
+                <span class="close-btn" onclick="closeCart()">&times;</span>
+            </div>
+            <div id="cart-items-container">
+                <!-- Item Keranjang akan dirender oleh Javascript -->
+            </div>
+            <div class="cart-total" id="cart-total">Total: 0 LE</div>
+            <button class="btn-checkout" onclick="checkoutWA()"><i class="fab fa-whatsapp"></i> Kirim Pesanan ke WhatsApp</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Khatulistiwa Resto - Cairo. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let selectedService = 'Dine In';
+
+        function setService(service, btn) {
+            selectedService = service;
+            let buttons = document.querySelectorAll('.service-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
         }
-      }
-      updateCartUI();
-    }
 
-    function toggleCart() {
-      const drawer = document.getElementById('cart-drawer');
-      const content = document.getElementById('cart-content');
-      
-      if(drawer.classList.contains('opacity-0')) {
-        drawer.classList.remove('opacity-0', 'pointer-events-none');
-        content.classList.remove('translate-x-full');
-      } else {
-        drawer.classList.add('opacity-0', 'pointer-events-none');
-        content.classList.add('translate-x-full');
-      }
-    }
+        function addToCart(name, price) {
+            let item = cart.find(i => i.name === name);
+            if (item) {
+                item.qty++;
+            } else {
+                cart.push({ name: name, price: price, qty: 1 });
+            }
+            updateCart();
+        }
 
-    // Fungsi Kirim Pendataan ke Google Sheet
-    function recordOrderToSheet(name, dateTimeStr, cartItems) {
-      if (GOOGLE_SHEET_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') return;
+        function changeQty(name, delta) {
+            let item = cart.find(i => i.name === name);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+            }
+            updateCart();
+            renderCart();
+        }
 
-      cartItems.forEach((item, idx) => {
-        const payload = {
-          no: idx + 1,
-          jam_tgl: dateTimeStr,
-          nama: name,
-          menu: item.name,
-          porsi: item.qty,
-          harga: item.price,
-          total: item.price * item.qty
-        };
+        function updateCart() {
+            let count = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-count').innerText = count;
+        }
 
-        fetch(GOOGLE_SHEET_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        }).catch(err => console.error("Gagal mencatat pesanan:", err));
-      });
-    }
+        function renderCart() {
+            let container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+            let total = 0;
 
-    // Checkout WA & Pendataan
-    function checkoutToWA() {
-      if(cart.length === 0) {
-        alert('Keranjang Anda masih kosong!');
-        return;
-      }
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#888;">Keranjang belanja Anda masih kosong.</p>';
+            } else {
+                cart.forEach(item => {
+                    let subtotal = item.price * item.qty;
+                    total += subtotal;
+                    container.innerHTML += `
+                        <div class="cart-item">
+                            <div>
+                                <strong>${item.name}</strong><br>
+                                <small>${item.price} LE x ${item.qty} = ${subtotal} LE</small>
+                            </div>
+                            <div class="cart-item-controls">
+                                <button onclick="changeQty('${item.name}', -1)">-</button>
+                                <span style="margin: 0 5px;">${item.qty}</span>
+                                <button onclick="changeQty('${item.name}', 1)">+</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            document.getElementById('cart-total').innerText = 'Total: ' + total + ' LE';
+        }
 
-      const name = document.getElementById('cust-name').value || 'Pelanggan';
-      const orderType = document.getElementById('order-type').value;
-      const tableNo = document.getElementById('cust-table').value || '-';
-      const address = document.getElementById('cust-address').value || '-';
-      const notes = document.getElementById('cust-notes').value || '-';
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        function openCart() {
+            renderCart();
+            document.getElementById('cart-modal').style.display = 'flex';
+        }
 
-      // Waktu Transaksi
-      const now = new Date();
-      const dateTimeStr = now.toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' });
+        function closeCart() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
 
-      // Catat ke Sheet
-      recordOrderToSheet(name, dateTimeStr, cart);
+        function checkoutWA() {
+            if (cart.length === 0) {
+                alert('Keranjang belanja Anda kosong!');
+                return;
+            }
 
-      let itemText = '';
-      cart.forEach((item, index) => {
-        itemText += `${index + 1}. ${item.name} (${item.qty}x) = ${item.price * item.qty} LE\n`;
-      });
+            let phoneNumber = '201515041807';
+            let message = `Halo *Khatulistiwa Resto*, saya ingin memesan:\n\n`;
+            message += `*Tipe Pesanan:* ${selectedService}\n`;
+            message += `-----------------------------------\n`;
 
-      let locationDetails = '';
-      if (orderType === 'Dine In') {
-        locationDetails = `*No. Meja:* ${tableNo}\n`;
-      } else if (orderType === 'Tausil / Delivery') {
-        locationDetails = `*Alamat Pengiriman:* ${address}\n`;
-      }
+            let total = 0;
+            cart.forEach(item => {
+                let subtotal = item.price * item.qty;
+                total += subtotal;
+                message += `• ${item.name} (${item.qty}x) = ${subtotal} LE\n`;
+            });
 
-      const message = `Halo *Khatulistiwa Resto Cairo*, saya mau pesan:\n\n` +
-                      `*Nama Pemesan:* ${name}\n` +
-                      `*Tipe Pesanan:* ${orderType}\n` +
-                      `${locationDetails}\n` +
-                      `*Rincian Pesanan:*\n${itemText}\n` +
-                      `*Total Estimasi:* ${totalPrice} LE\n` +
-                      `*Catatan:* ${notes}\n\n` +
-                      `Mohon diproses ya, terima kasih!`;
+            message += `-----------------------------------\n`;
+            message += `*Total Pembayaran: ${total} LE*\n\n`;
+            message += `Mohon diproses pesanan saya. Terima kasih!`;
 
-      window.open(`https://wa.me/201515041807?text=${encodeURIComponent(message)}`, '_blank');
-    }
-  </script>
+            let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
