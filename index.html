@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khatulistiwa Resto - Cita Rasa Autentik di Cairo</title>
-    <!-- FontAwesome & Google Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Khatulistiwa Resto - Cairo, Egypt</title>
+    <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-color: #1e5631;
-            --primary-light: #4c9a2a;
-            --secondary-color: #76ba1b;
-            --accent-color: #a4de02;
-            --bg-light: #f4f7f4;
-            --text-dark: #222222;
+            --primary-green: #1b5e20;
+            --secondary-green: #2e7d32;
+            --light-green: #e8f5e9;
+            --accent-green: #4caf50;
+            --gold: #fbc02d;
+            --dark-text: #2c3e50;
+            --light-bg: #f9fbf9;
             --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         * {
@@ -23,23 +26,24 @@
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            background-color: var(--light-bg);
+            color: var(--dark-text);
             line-height: 1.6;
             padding-bottom: 80px;
         }
 
-        /* Header & Nav */
+        /* HEADER & NAVIGATION */
         header {
-            background-color: var(--primary-color);
+            background-color: var(--primary-green);
             color: var(--white);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
 
         .nav-container {
@@ -48,14 +52,34 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 12px 20px;
         }
 
-        .logo-area h1 {
-            font-size: 24px;
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--white);
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+
+        .brand-name h1 {
+            font-size: 1.2rem;
             font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--accent-color);
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+
+        .brand-name p {
+            font-size: 0.75rem;
+            color: var(--gold);
         }
 
         nav ul {
@@ -67,45 +91,64 @@
         nav a {
             color: var(--white);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            color: var(--gold);
         }
 
-        /* Hero / Beranda */
+        /* HERO SECTION (BERANDA) */
         .hero {
-            background: linear-gradient(rgba(30, 86, 49, 0.85), rgba(30, 86, 49, 0.85)), 
-                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80') center/cover;
+            position: relative;
+            background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(27, 94, 32, 0.85)), 
+                        url('https://lh3.googleusercontent.com/d/1X1oQY2c7R8V9g2N3w4E5r6t7y8u9i0oP') center/cover no-repeat;
             color: var(--white);
+            padding: 60px 20px;
             text-align: center;
-            padding: 80px 20px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero h2 {
-            font-size: 36px;
+            font-size: 2.2rem;
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .hero p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 25px;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .hero-img {
+            max-width: 100%;
+            width: 550px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 4px solid var(--white);
+            margin-top: 15px;
         }
 
         .btn-wa-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background-color: #25D366;
             color: white;
             padding: 12px 25px;
-            text-decoration: none;
-            font-weight: bold;
             border-radius: 30px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
             transition: transform 0.2s;
         }
 
@@ -113,39 +156,7 @@
             transform: scale(1.05);
         }
 
-        /* Service Option Section */
-        .service-type {
-            max-width: 1200px;
-            margin: 30px auto 10px;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .service-options {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .service-btn {
-            padding: 10px 20px;
-            border: 2px solid var(--primary-color);
-            background: white;
-            color: var(--primary-color);
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .service-btn.active, .service-btn:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Section Styling */
+        /* CONTAINER GENERAL */
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -154,9 +165,9 @@
 
         .section-title {
             text-align: center;
-            color: var(--primary-color);
+            font-size: 1.8rem;
+            color: var(--primary-green);
             margin-bottom: 30px;
-            font-size: 28px;
             position: relative;
         }
 
@@ -164,20 +175,22 @@
             content: '';
             width: 60px;
             height: 4px;
-            background-color: var(--secondary-color);
+            background-color: var(--gold);
             display: block;
             margin: 8px auto 0;
             border-radius: 2px;
         }
 
-        /* Category Grid */
-        .category-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin: 25px 0 15px;
-            font-size: 20px;
+        /* MENU CATEGORIES */
+        .category-title {
+            font-size: 1.4rem;
+            color: var(--secondary-green);
+            margin: 35px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--light-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .menu-grid {
@@ -190,24 +203,26 @@
             background: var(--white);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .menu-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
         .menu-img {
             width: 100%;
             height: 180px;
             object-fit: cover;
+            background-color: #eee;
         }
 
-        .menu-info {
+        .menu-details {
             padding: 15px;
             flex-grow: 1;
             display: flex;
@@ -216,131 +231,143 @@
         }
 
         .menu-title {
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: 600;
+            color: var(--dark-text);
             margin-bottom: 5px;
         }
 
         .menu-note {
-            font-size: 12px;
+            font-size: 0.75rem;
             color: #666;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-style: italic;
         }
 
         .menu-price {
-            font-size: 16px;
+            font-size: 1.1rem;
             font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+            color: var(--primary-green);
+            margin-bottom: 12px;
         }
 
-        .btn-add {
-            background-color: var(--primary-light);
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
+        .btn-add-cart {
             width: 100%;
+            background-color: var(--secondary-green);
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             transition: background 0.3s;
         }
 
-        .btn-add:hover {
-            background-color: var(--primary-color);
+        .btn-add-cart:hover {
+            background-color: var(--primary-green);
         }
 
-        /* About Section */
-        .about-card {
-            background: white;
+        /* TENTANG KAMI & KONTAK */
+        .info-section {
+            background-color: var(--white);
+            border-radius: 15px;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
         }
 
-        .about-card p {
-            font-size: 16px;
+        .about-text {
+            font-size: 1.05rem;
+            text-align: center;
             color: #444;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
             line-height: 1.8;
         }
 
-        /* Contact Section */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+            margin-top: 20px;
         }
 
         .contact-card {
-            background: white;
+            background-color: var(--light-green);
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 10px;
             text-align: center;
         }
 
         .contact-card i {
-            font-size: 30px;
-            color: var(--primary-color);
+            font-size: 2rem;
+            color: var(--primary-green);
             margin-bottom: 10px;
         }
 
-        .contact-card a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: bold;
+        .contact-card h4 {
+            margin-bottom: 8px;
+            color: var(--secondary-green);
         }
 
-        /* Sticky Floating Cart */
-        .cart-float {
+        .contact-card a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* FLOATING CART BUTTON & MODAL */
+        .floating-cart {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #25D366;
-            color: white;
-            padding: 15px 20px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: none;
             border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            z-index: 1001;
-            font-weight: bold;
+            gap: 10px;
+            z-index: 999;
         }
 
         .cart-badge {
-            background: white;
-            color: #25D366;
+            background-color: var(--gold);
+            color: var(--dark-text);
             border-radius: 50%;
             padding: 2px 8px;
-            font-size: 14px;
+            font-size: 0.85rem;
         }
 
-        /* Cart Modal */
-        .modal {
-            display: none;
+        .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
+            background: rgba(0,0,0,0.6);
+            display: none;
             justify-content: center;
             align-items: center;
+            z-index: 2000;
         }
 
         .modal-content {
-            background: white;
+            background: var(--white);
             width: 90%;
             max-width: 500px;
-            border-radius: 12px;
-            padding: 20px;
-            max-height: 80vh;
+            border-radius: 15px;
+            padding: 25px;
+            max-height: 90vh;
             overflow-y: auto;
         }
 
@@ -348,81 +375,115 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #eee;
             padding-bottom: 10px;
             margin-bottom: 15px;
         }
 
         .close-btn {
-            font-size: 24px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
             cursor: pointer;
+            color: #888;
+        }
+
+        .cart-items {
+            margin-bottom: 15px;
         }
 
         .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            padding: 10px 0;
             border-bottom: 1px dashed #eee;
-            padding-bottom: 8px;
         }
 
-        .cart-item-controls button {
-            background: #eee;
-            border: none;
-            padding: 2px 8px;
-            cursor: pointer;
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-qty {
+            background-color: var(--light-green);
+            border: 1px solid var(--accent-green);
+            width: 25px;
+            height: 25px;
             border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
-        .cart-total {
-            font-weight: bold;
-            font-size: 18px;
-            text-align: right;
-            margin-top: 15px;
-            color: var(--primary-color);
+        .order-options {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .order-options label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .order-options select, .order-options input, .order-options textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
 
         .btn-checkout {
+            width: 100%;
             background-color: #25D366;
             color: white;
             border: none;
-            width: 100%;
             padding: 12px;
             border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            margin-top: 15px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Footer */
         footer {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--primary-green);
+            color: var(--white);
             text-align: center;
             padding: 20px;
-            margin-top: 50px;
+            font-size: 0.85rem;
+            margin-top: 40px;
         }
 
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 10px;
+            nav ul {
+                display: none; /* Disederhanakan untuk tampilan mobile */
             }
             .hero h2 {
-                font-size: 26px;
+                font-size: 1.6rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigasi -->
+    <!-- HEADER & NAVBAR -->
     <header>
         <div class="nav-container">
             <div class="logo-area">
-                <h1>KHATULISTIWA RESTO</h1>
+                <img src="https://lh3.googleusercontent.com/d/1_A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P" alt="Logo Khatulistiwa Resto">
+                <div class="brand-name">
+                    <h1>KHATULISTIWA RESTO</h1>
+                    <p>Authentic Indonesian Cuisine</p>
+                </div>
             </div>
             <nav>
                 <ul>
@@ -435,472 +496,767 @@
         </div>
     </header>
 
-    <!-- Beranda / Hero Section -->
+    <!-- BERANDA (HERO SECTION) -->
     <section id="beranda" class="hero">
-        <h2>Rumah Kedua Untuk Anak Rantau & Pecinta Kuliner</h2>
-        <p>Menyajikan cita rasa autentik Nusantara di jantung kota Cairo dengan bahan-bahan fresh setiap harinya.</p>
-        <a href="https://wa.me/201515041807" target="_blank" class="btn-wa-hero">
-            <i class="fab fa-whatsapp">
-            Pesan via WhatsApp (+20 15 15 041807)
-        </a>
+        <div class="hero-content">
+            <h2>Sensasi Cita Rasa Autentik Nusantara di Cairo</h2>
+            <p>Rumah kedua untuk anak rantau dan pecinta kuliner Indonesia. Disajikan segar setiap hari!</p>
+            <a href="https://wa.me/201515041807" target="_blank" class="btn-wa-hero">
+                <i class="fab fa-whatsapp"></i> Hubungi WhatsApp (+20 15 15 041807)
+            </a>
+            <br>
+            <img src="https://lh3.googleusercontent.com/d/1X1oQY2c7R8V9g2N3w4E5r6t7y8u9i0oP" alt="Beranda Khatulistiwa" class="hero-img">
+        </div>
     </section>
 
-    <!-- Pilihan Layanan -->
-    <div class="service-type">
-        <h3>Pilih Tipe Pesanan Anda:</h3>
-        <div class="service-options">
-            <button class="service-btn active" onclick="setService('Dine In', this)">Dine In (Makan di Tempat)</button>
-            <button class="service-btn" onclick="setService('Tausil / Delivery', this)">Tausil (Delivery)</button>
-            <button class="service-btn" onclick="setService('Take Away', this)">Take Away (Bawa Pulang)</button>
-        </div>
-    </div>
-
-    <!-- Menu Produk -->
+    <!-- MENU PRODUK -->
     <section id="menu" class="container">
-        <h2 class="section-title">Menu Produk</h2>
+        <h2 class="section-title">Menu Produk Kami</h2>
 
-        <!-- Nasi + Ayam -->
-        <div class="category-header">Nasi + Ayam</div>
-        <p style="margin-bottom: 10px; font-style: italic; color: #555;">Keterangan: Termasuk Sambal, Kuah Bening, & Lalapan Timun</p>
+        <!-- CAT: NASI + AYAM -->
+        <h3 class="category-title"><i class="fas fa-drumstick-bite"></i> Nasi + Ayam</h3>
+        <p style="font-size:0.85rem; color:#555; margin-bottom:15px;">*Ket: Sudah termasuk Sambal, Kuah Bening, dan Lalapan Timun.</p>
         <div class="menu-grid">
             <div class="menu-card">
-                <img src="WhatsApp Image 2026-09-09 at 16.48.44 (5)" class="menu-img" alt="Ayam Bakar">
-                <div class="menu-info">
-                    <div class="menu-title">Nasi putih/gaol + Ayam Bakar</div>
-                    <div class="menu-price">90 LE</div>
-                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ayam Bakar', 90)">+ Tambah ke Keranjang</button>
+                <img src="https://lh3.googleusercontent.com/d/1A_AyamBakar_SampleImg" class="menu-img" alt="Nasi + Ayam Bakar">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Nasi Putih/Gaol + Ayam Bakar</div>
+                        <div class="menu-note">Pilihan nasi putih atau gaol, ayam bakar gurih lezat.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">90 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Nasi + Ayam Bakar', 90)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Ayam Ketumbar">
-                <div class="menu-info">
-                    <div class="menu-title">Nasi putih/gaol + Ayam Ketumbar</div>
-                    <div class="menu-price">90 LE</div>
-                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ayam Ketumbar', 90)">+ Tambah ke Keranjang</button>
+                <img src="https://lh3.googleusercontent.com/d/1B_AyamKetumbar_SampleImg" class="menu-img" alt="Nasi + Ayam Ketumbar">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Nasi Putih/Gaol + Ayam Ketumbar</div>
+                        <div class="menu-note">Ayam goreng bumbu ketumbar wangi khas.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">90 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Nasi + Ayam Ketumbar', 90)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Ayam Goreng">
-                <div class="menu-info">
-                    <div class="menu-title">Nasi putih/gaol + Ayam Goreng</div>
-                    <div class="menu-price">90 LE</div>
-                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ayam Goreng', 90)">+ Tambah ke Keranjang</button>
+                <img src="https://lh3.googleusercontent.com/d/1C_AyamGoreng_SampleImg" class="menu-img" alt="Nasi + Ayam Goreng">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Nasi Putih/Gaol + Ayam Goreng</div>
+                        <div class="menu-note">Ayam goreng tradisional renyah dan empuk.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">90 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Nasi + Ayam Goreng', 90)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="https://visitingjogja.jogjaprov.go.id/37710/nikmatnya-ayam-goreng-cak-yunus-legendaris/" class="menu-img" alt="Ayam Krispy" onerror="this.src='https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=80'">
-                <div class="menu-info">
-                    <div class="menu-title">Nasi putih/gaol + Ayam Krispy</div>
-                    <div class="menu-price">90 LE</div>
-                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ayam Krispy', 90)">+ Tambah ke Keranjang</button>
+                <img src="https://visitingjogja.jogjaprov.go.id/wp-content/uploads/2023/08/Ayam-Goreng-Cak-Yunus.jpg" class="menu-img" alt="Nasi + Ayam Krispy">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Nasi Putih/Gaol + Ayam Krispy</div>
+                        <div class="menu-note">Ayam balut tepung krispy renyah.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">90 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Nasi + Ayam Krispy', 90)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="https://www.instagram.com/p/DXYd1dXE9s0/" class="menu-img" alt="Ayam Geprek" onerror="this.src='https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80'">
-                <div class="menu-info">
-                    <div class="menu-title">Nasi putih/gaol + Ayam Geprek</div>
-                    <div class="menu-price">90 LE</div>
-                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ayam Geprek', 90)">+ Tambah ke Keranjang</button>
+                <img src="https://www.instagram.com/p/DXYd1dXE9s0/" class="menu-img" alt="Nasi + Ayam Geprek">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Nasi Putih/Gaol + Ayam Geprek</div>
+                        <div class="menu-note">Ayam krispy digeprek dengan sambal pedas mantap.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">90 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Nasi + Ayam Geprek', 90)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Seblak Khatulistiwa -->
-        <div class="category-header">Seblak Khatulistiwa</div>
+        <!-- CAT: SEBLAK KHATULISTIWA -->
+        <h3 class="category-title"><i class="fas fa-pepper-hot"></i> Seblak Khatulistiwa</h3>
         <div class="menu-grid">
             <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Seblak Komplit">
-                <div class="menu-info">
-                    <div class="menu-title">Seblak Komplit</div>
-                    <div class="menu-price">110 LE</div>
-                    <button class="btn-add" onclick="addToCart('Seblak Komplit', 110)">+ Tambah ke Keranjang</button>
+                <img src="https://lh3.googleusercontent.com/d/1D_Seblak_SampleImg" class="menu-img" alt="Seblak Komplit">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Seblak Komplit</div>
+                        <div class="menu-note">Isian lengkap, pedas gurih kaya rempah.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">110 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Seblak Komplit', 110)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Seblak Ceker">
-                <div class="menu-info">
-                    <div class="menu-title">Seblak Ceker</div>
-                    <div class="menu-price">75 LE</div>
-                    <button class="btn-add" onclick="addToCart('Seblak Ceker', 75)">+ Tambah ke Keranjang</button>
+                <img src="https://lh3.googleusercontent.com/d/1D_Seblak_SampleImg" class="menu-img" alt="Seblak Ceker">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Seblak Ceker</div>
+                        <div class="menu-note">Seblak kenyal dengan ceker ayam empuk.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">75 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Seblak Ceker', 75)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Seblak Tulang">
-                <div class="menu-info">
-                    <div class="menu-title">Seblak Tulang</div>
-                    <div class="menu-price">75 LE</div>
-                    <button class="btn-add" onclick="addToCart('Seblak Tulang', 75)">+ Tambah ke Keranjang</button>
+                <img src="https://lh3.googleusercontent.com/d/1D_Seblak_SampleImg" class="menu-img" alt="Seblak Tulang">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Seblak Tulang</div>
+                        <div class="menu-note">Seblak dengan ekstra tulang renyah gurih.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">75 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Seblak Tulang', 75)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Seblak Mie Telor">
-                <div class="menu-info">
-                    <div class="menu-title">Seblak Mie Telor</div>
-                    <div class="menu-price">75 LE</div>
-                    <button class="btn-add" onclick="addToCart('Seblak Mie Telor', 75)">+ Tambah ke Keranjang</button>
+                <img src="https://lh3.googleusercontent.com/d/1D_Seblak_SampleImg" class="menu-img" alt="Seblak Mie Telor">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Seblak Mie Telor</div>
+                        <div class="menu-note">Kombinasi mie, telor, dan kuah seblak pedas.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">75 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Seblak Mie Telor', 75)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Seblak Mie">
-                <div class="menu-info">
-                    <div class="menu-title">Seblak Mie</div>
+                <img src="https://lh3.googleusercontent.com/d/1D_Seblak_SampleImg" class="menu-img" alt="Seblak Mie">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Seblak Mie</div>
+                        <div class="menu-note">Seblak mie khas Khatulistiwa.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">65 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Seblak Mie', 65)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAT: KWETIAU KHATULISTIWA -->
+        <h3 class="category-title"><i class="fas fa-utensils"></i> Kwetiau Khatulistiwa</h3>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1E_Kwetiau_SampleImg" class="menu-img" alt="Kwetiau Ori">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Kwetiau Ori</div>
+                        <div class="menu-note">Kwetiau goreng bumbu khas nikmat.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">85 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Kwetiau Ori', 85)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1E_Kwetiau_SampleImg" class="menu-img" alt="Kwetiau Telur">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Kwetiau Telur</div>
+                        <div class="menu-note">Kwetiau digoreng dengan orak-arik telur.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">95 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Kwetiau Telur', 95)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1E_Kwetiau_SampleImg" class="menu-img" alt="Kwetiau Ayam">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Kwetiau Ayam</div>
+                        <div class="menu-note">Kwetiau tumis dengan potongan daging ayam.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">100 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Kwetiau Ayam', 100)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1E_Kwetiau_SampleImg" class="menu-img" alt="Kwetiau Sapi">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Kwetiau Sapi</div>
+                        <div class="menu-note">Kwetiau goreng spesial daging sapi gurih.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">110 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Kwetiau Sapi', 110)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAT: NASI + IKAN -->
+        <h3 class="category-title"><i class="fas fa-fish"></i> Nasi + Ikan</h3>
+        <p style="font-size:0.85rem; color:#555; margin-bottom:15px;">*Ket: Sudah termasuk Sambal, Kuah Bening, dan Lalapan Timun.</p>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1F_IkanGoreng_SampleImg" class="menu-img" alt="Nasi + Ikan Goreng">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Nasi Putih/Gaol + Ikan Goreng</div>
+                        <div class="menu-note">Ikan goreng bumbu garing gurih.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">85 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Nasi + Ikan Goreng', 85)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1G_IkanBakar_SampleImg" class="menu-img" alt="Nasi + Ikan Bakar">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Nasi Putih/Gaol + Ikan Bakar</div>
+                        <div class="menu-note">Ikan bakar dengan kecap & bumbu rempah.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">85 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Nasi + Ikan Bakar', 85)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAT: SOUP TOMYUM -->
+        <h3 class="category-title"><i class="fas fa-bowl-rice"></i> Soup Tomyum</h3>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1H_Tomyum_SampleImg" class="menu-img" alt="Soup Mee Tomyum">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Soup Mee Tomyum</div>
+                        <div class="menu-note">Mie dalam kuah tomyum asam pedas segar.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">70 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Soup Mee Tomyum', 70)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1H_Tomyum_SampleImg" class="menu-img" alt="Soup Mee Tomyum Ayam">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Soup Mee Tomyum Ayam</div>
+                        <div class="menu-note">Mie kuah tomyum dengan topping daging ayam.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">80 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Soup Mee Tomyum Ayam', 80)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1H_Tomyum_SampleImg" class="menu-img" alt="Soup Tomyum Ayam">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Soup Tomyum Ayam</div>
+                        <div class="menu-note">Soup tomyum isian potongan daging ayam segar.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">100 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Soup Tomyum Ayam', 100)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1H_Tomyum_SampleImg" class="menu-img" alt="Soup Tomyum Sapi">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Soup Tomyum Sapi</div>
+                        <div class="menu-note">Soup tomyum spesial dengan daging sapi empuk.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">110 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Soup Tomyum Sapi', 110)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAT: CEMILAN -->
+        <h3 class="category-title"><i class="fas fa-cookie-bite"></i> Cemilan</h3>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1I_DimsumOri_SampleImg" class="menu-img" alt="Dimsum Goreng Ori">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Dimsum Goreng Ori (isi 5 pcs)</div>
+                        <div class="menu-note">Dimsum goreng renyah isi 5 pcs.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">80 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Dimsum Goreng Ori (5 pcs)', 80)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1J_DimsumMoza_SampleImg" class="menu-img" alt="Dimsum Goreng Mozzarella">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Dimsum Goreng Mozzarella (isi 4 pcs)</div>
+                        <div class="menu-note">Isi keju mozzarella lumer isi 4 pcs.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">90 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Dimsum Goreng Mozzarella (4 pcs)', 90)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://lh3.googleusercontent.com/d/1J_DimsumMoza_SampleImg" class="menu-img" alt="Dimsum Goreng Combo">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Dimsum Goreng Combo</div>
+                        <div class="menu-note">Paket mix (3 pcs Ori + 2 pcs Mozzarella).</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">100 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Dimsum Goreng Combo', 100)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.pinimg.com/564x/62/28/33/622833823503586808.jpg" class="menu-img" alt="Pisang Goreng Khatulistiwa">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Pisang Goreng Khatulistiwa (isi 8 pcs)</div>
+                        <div class="menu-note">Pisang goreng manis krispy isi 8 pcs.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">65 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Pisang Goreng (8 pcs)', 65)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.tokopedia.net/img/v1/prod/product-1/2020/7/22/55583106/55583106_c0f75727-2c93-4e89-8d6f-2b23114d5671_500_500" class="menu-img" alt="Ceker Mercon">
+                <div class="menu-details">
+                    <div>
+                        <div class="menu-title">Ceker Mercon (isi 5 pcs)</div>
+                        <div class="menu-note">Ceker ayam bumbu pedas mercon isi 5 pcs.</div>
+                    </div>
+                    <div>
+                        <div class="menu-price">60 LE</div>
+                        <button class="btn-add-cart" onclick="addToCart('Ceker Mercon (5 pcs)', 60)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAT: MINUMAN CLASSIC -->
+        <h3 class="category-title"><i class="fas fa-glass-water"></i> Minuman Classic (Hot / Cold)</h3>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Tea (Teh)</div>
+                    <div class="menu-price">Hot: 20 LE / Cold: 25 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Teh (Hot)', 20)">+ Hot (20 LE)</button>
+                    <button class="btn-add-cart" onclick="addToCart('Teh (Cold)', 25)" style="margin-top:5px; background-color:var(--accent-green);">+ Cold (25 LE)</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Lemon</div>
+                    <div class="menu-price">Hot: 20 LE / Cold: 25 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Lemon (Hot)', 20)">+ Hot (20 LE)</button>
+                    <button class="btn-add-cart" onclick="addToCart('Lemon (Cold)', 25)" style="margin-top:5px; background-color:var(--accent-green);">+ Cold (25 LE)</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Lemon Tea</div>
+                    <div class="menu-price">Hot: 25 LE / Cold: 30 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Lemon Tea (Hot)', 25)">+ Hot (25 LE)</button>
+                    <button class="btn-add-cart" onclick="addToCart('Lemon Tea (Cold)', 30)" style="margin-top:5px; background-color:var(--accent-green);">+ Cold (30 LE)</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Susu</div>
+                    <div class="menu-price">Hot: 30 LE / Cold: 35 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Susu (Hot)', 30)">+ Hot (30 LE)</button>
+                    <button class="btn-add-cart" onclick="addToCart('Susu (Cold)', 35)" style="margin-top:5px; background-color:var(--accent-green);">+ Cold (35 LE)</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Es Bandung</div>
+                    <div class="menu-price">Cold: 40 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Es Bandung (Cold)', 40)">+ Cold (40 LE)</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Nescafe</div>
+                    <div class="menu-price">Hot: 30 LE / Cold: 35 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Nescafe (Hot)', 30)">+ Hot (30 LE)</button>
+                    <button class="btn-add-cart" onclick="addToCart('Nescafe (Cold)', 35)" style="margin-top:5px; background-color:var(--accent-green);">+ Cold (35 LE)</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Kopi Hitam</div>
+                    <div class="menu-price">Hot: 35 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Kopi Hitam (Hot)', 35)">+ Hot (35 LE)</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Kopi Susu</div>
+                    <div class="menu-price">Hot: 40 LE / Cold: 45 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Kopi Susu (Hot)', 40)">+ Hot (40 LE)</button>
+                    <button class="btn-add-cart" onclick="addToCart('Kopi Susu (Cold)', 45)" style="margin-top:5px; background-color:var(--accent-green);">+ Cold (45 LE)</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Faransawi</div>
+                    <div class="menu-price">Hot: 45 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Faransawi (Hot)', 45)">+ Hot (45 LE)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAT: PREMIUM DRINK -->
+        <h3 class="category-title"><i class="fas fa-cocktail"></i> Premium Drink</h3>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Thai Tea</div>
                     <div class="menu-price">65 LE</div>
-                    <button class="btn-add" onclick="addToCart('Seblak Mie', 65)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kwetiau Khatulistiwa -->
-        <div class="category-header">Kwetiau Khatulistiwa</div>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Kwetiau Ori">
-                <div class="menu-info">
-                    <div class="menu-title">Kwetiau Ori</div>
-                    <div class="menu-price">85 LE</div>
-                    <button class="btn-add" onclick="addToCart('Kwetiau Ori', 85)">+ Tambah ke Keranjang</button>
+                    <button class="btn-add-cart" onclick="addToCart('Thai Tea', 65)"><i class="fas fa-cart-plus"></i> Tambah</button>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Kwetiau Telur">
-                <div class="menu-info">
-                    <div class="menu-title">Kwetiau Telur</div>
-                    <div class="menu-price">95 LE</div>
-                    <button class="btn-add" onclick="addToCart('Kwetiau Telur', 95)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Kwetiau Ayam">
-                <div class="menu-info">
-                    <div class="menu-title">Kwetiau Ayam</div>
-                    <div class="menu-price">100 LE</div>
-                    <button class="btn-add" onclick="addToCart('Kwetiau Ayam', 100)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Kwetiau Sapi">
-                <div class="menu-info">
-                    <div class="menu-title">Kwetiau Sapi</div>
-                    <div class="menu-price">110 LE</div>
-                    <button class="btn-add" onclick="addToCart('Kwetiau Sapi', 110)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Nasi + Ikan -->
-        <div class="category-header">Nasi + Ikan</div>
-        <p style="margin-bottom: 10px; font-style: italic; color: #555;">Keterangan: Termasuk Sambal, Kuah Bening, & Lalapan Timun</p>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Ikan Goreng">
-                <div class="menu-info">
-                    <div class="menu-title">Nasi putih/gaol + Ikan Goreng</div>
-                    <div class="menu-price">85 LE</div>
-                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ikan Goreng', 85)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Ikan Bakar">
-                <div class="menu-info">
-                    <div class="menu-title">Nasi putih/gaol + Ikan Bakar</div>
-                    <div class="menu-price">85 LE</div>
-                    <button class="btn-add" onclick="addToCart('Nasi putih/gaol + Ikan Bakar', 85)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Soup Tomyum -->
-        <div class="category-header">Soup Tomyum</div>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Soup Mee Tomyum">
-                <div class="menu-info">
-                    <div class="menu-title">Soup Mee Tomyum</div>
-                    <div class="menu-price">70 LE</div>
-                    <button class="btn-add" onclick="addToCart('Soup Mee Tomyum', 70)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Soup Mee Tomyum Ayam">
-                <div class="menu-info">
-                    <div class="menu-title">Soup Mee Tomyum Ayam</div>
-                    <div class="menu-price">80 LE</div>
-                    <button class="btn-add" onclick="addToCart('Soup Mee Tomyum Ayam', 80)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Soup Tomyum Ayam">
-                <div class="menu-info">
-                    <div class="menu-title">Soup Tomyum Ayam</div>
-                    <div class="menu-price">100 LE</div>
-                    <button class="btn-add" onclick="addToCart('Soup Tomyum Ayam', 100)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=500&q=80" class="menu-img" alt="Soup Tomyum Sapi">
-                <div class="menu-info">
-                    <div class="menu-title">Soup Tomyum Sapi</div>
-                    <div class="menu-price">110 LE</div>
-                    <button class="btn-add" onclick="addToCart('Soup Tomyum Sapi', 110)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ekstra Makanan -->
-        <div class="category-header">Ekstra</div>
-        <div class="menu-grid">
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Telur</div><div class="menu-price">10 LE</div><button class="btn-add" onclick="addToCart('Ekstra Telur', 10)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Mie</div><div class="menu-price">10 LE</div><button class="btn-add" onclick="addToCart('Ekstra Mie', 10)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Nasi putih/gaol</div><div class="menu-price">15 LE</div><button class="btn-add" onclick="addToCart('Ekstra Nasi putih/gaol', 15)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Sambal merah/chili padi</div><div class="menu-price">15 LE</div><button class="btn-add" onclick="addToCart('Ekstra Sambal merah/chili padi', 15)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Ceker (1 pcs)</div><div class="menu-price">13 LE</div><button class="btn-add" onclick="addToCart('Ekstra Ceker 1pcs', 13)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Ceker (3 pcs)</div><div class="menu-price">35 LE</div><button class="btn-add" onclick="addToCart('Ekstra Ceker 3pcs', 35)">+ Tambah</button></div></div>
-        </div>
-
-        <!-- Cemilan -->
-        <div class="category-header">Cemilan</div>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <div class="menu-info">
-                    <div class="menu-title">Dimsum goreng ori (isi 5 pcs)</div>
-                    <div class="menu-price">80 LE</div>
-                    <button class="btn-add" onclick="addToCart('Dimsum goreng ori (5 pcs)', 80)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-            <div class="menu-card">
-                <div class="menu-info">
-                    <div class="menu-title">Dimsum goreng mozzarella (isi 4 pcs)</div>
-                    <div class="menu-price">90 LE</div>
-                    <button class="btn-add" onclick="addToCart('Dimsum goreng mozzarella (4 pcs)', 90)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-            <div class="menu-card">
-                <div class="menu-info">
-                    <div class="menu-title">Dimsum goreng combo (isi 3 ori & 2 moza)</div>
-                    <div class="menu-price">100 LE</div>
-                    <button class="btn-add" onclick="addToCart('Dimsum goreng combo', 100)">+ Tambah ke Keranjang</button>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="https://ar.pinterest.com/pin/622833823503586808/" class="menu-img" alt="Pisang Goreng" onerror="this.src='https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=500&q=80'">
-                <div class="menu-info">
-                    <div class="menu-title">Pisang goreng khatulistiwa (isi 8 pcs)</div>
+                <div class="menu-details">
+                    <div class="menu-title">Green Tea</div>
                     <div class="menu-price">65 LE</div>
-                    <button class="btn-add" onclick="addToCart('Pisang goreng khatulistiwa (8 pcs)', 65)">+ Tambah ke Keranjang</button>
+                    <button class="btn-add-cart" onclick="addToCart('Green Tea', 65)"><i class="fas fa-cart-plus"></i> Tambah</button>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="https://shopee.co.id/OSENG-MERCON-CEKER-CEKER-AYAM-PEDAS-i.55583106.22077922122" class="menu-img" alt="Ceker Mercon" onerror="this.src='https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=80'">
-                <div class="menu-info">
-                    <div class="menu-title">Ceker mercon (isi 5 pcs)</div>
+                <div class="menu-details">
+                    <div class="menu-title">Matcha</div>
+                    <div class="menu-price">80 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Matcha', 80)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Matcha Strawberry</div>
+                    <div class="menu-price">90 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Matcha Strawberry', 90)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Red Velvet</div>
+                    <div class="menu-price">80 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Red Velvet', 80)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Dark Chocolate</div>
+                    <div class="menu-price">80 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Dark Chocolate', 80)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Kopi Susu Khatulistiwa</div>
                     <div class="menu-price">60 LE</div>
-                    <button class="btn-add" onclick="addToCart('Ceker mercon (5 pcs)', 60)">+ Tambah ke Keranjang</button>
+                    <button class="btn-add-cart" onclick="addToCart('Kopi Susu Khatulistiwa', 60)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Kopi Susu Gula Aren</div>
+                    <div class="menu-price">70 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Kopi Susu Gula Aren', 70)"><i class="fas fa-cart-plus"></i> Tambah</button>
                 </div>
             </div>
         </div>
 
-        <!-- Minuman Classic -->
-        <div class="category-header">Minuman - Classic Drink (Hot / Cold)</div>
+        <!-- CAT: EKSTRA -->
+        <h3 class="category-title"><i class="fas fa-plus-circle"></i> Menu Ekstra</h3>
         <div class="menu-grid">
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Tea (Hot)</div><div class="menu-price">20 LE</div><button class="btn-add" onclick="addToCart('Tea (Hot)', 20)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Tea (Cold)</div><div class="menu-price">25 LE</div><button class="btn-add" onclick="addToCart('Tea (Cold)', 25)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Lemon (Hot)</div><div class="menu-price">20 LE</div><button class="btn-add" onclick="addToCart('Lemon (Hot)', 20)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Lemon (Cold)</div><div class="menu-price">25 LE</div><button class="btn-add" onclick="addToCart('Lemon (Cold)', 25)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Lemon Tea (Hot)</div><div class="menu-price">25 LE</div><button class="btn-add" onclick="addToCart('Lemon Tea (Hot)', 25)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Lemon Tea (Cold)</div><div class="menu-price">30 LE</div><button class="btn-add" onclick="addToCart('Lemon Tea (Cold)', 30)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Susu (Hot)</div><div class="menu-price">30 LE</div><button class="btn-add" onclick="addToCart('Susu (Hot)', 30)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Susu (Cold)</div><div class="menu-price">35 LE</div><button class="btn-add" onclick="addToCart('Susu (Cold)', 35)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Es Bandung</div><div class="menu-price">40 LE</div><button class="btn-add" onclick="addToCart('Es Bandung', 40)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Nescafe (Hot)</div><div class="menu-price">30 LE</div><button class="btn-add" onclick="addToCart('Nescafe (Hot)', 30)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Nescafe (Cold)</div><div class="menu-price">35 LE</div><button class="btn-add" onclick="addToCart('Nescafe (Cold)', 35)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Kopi Hitam (Hot)</div><div class="menu-price">35 LE</div><button class="btn-add" onclick="addToCart('Kopi Hitam (Hot)', 35)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Kopi Susu (Hot)</div><div class="menu-price">40 LE</div><button class="btn-add" onclick="addToCart('Kopi Susu (Hot)', 40)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Kopi Susu (Cold)</div><div class="menu-price">45 LE</div><button class="btn-add" onclick="addToCart('Kopi Susu (Cold)', 45)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Faransawi (Hot)</div><div class="menu-price">45 LE</div><button class="btn-add" onclick="addToCart('Faransawi (Hot)', 45)">+ Tambah</button></div></div>
-        </div>
-
-        <!-- Minuman Premium -->
-        <div class="category-header">Minuman - Premium Drink</div>
-        <div class="menu-grid">
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Thai Tea</div><div class="menu-price">65 LE</div><button class="btn-add" onclick="addToCart('Thai Tea', 65)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Green Tea</div><div class="menu-price">65 LE</div><button class="btn-add" onclick="addToCart('Green Tea', 65)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Matcha</div><div class="menu-price">80 LE</div><button class="btn-add" onclick="addToCart('Matcha', 80)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Matcha Strawberry</div><div class="menu-price">90 LE</div><button class="btn-add" onclick="addToCart('Matcha Strawberry', 90)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Redvelvet</div><div class="menu-price">80 LE</div><button class="btn-add" onclick="addToCart('Redvelvet', 80)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Dark Chocolate</div><div class="menu-price">80 LE</div><button class="btn-add" onclick="addToCart('Dark Chocolate', 80)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Kopi Susu Khatulistiwa</div><div class="menu-price">60 LE</div><button class="btn-add" onclick="addToCart('Kopi Susu Khatulistiwa', 60)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Kopi Susu Gula Aren</div><div class="menu-price">70 LE</div><button class="btn-add" onclick="addToCart('Kopi Susu Gula Aren', 70)">+ Tambah</button></div></div>
-        </div>
-
-        <!-- Ekstra Minuman -->
-        <div class="category-header">Ekstra Minuman</div>
-        <div class="menu-grid">
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Topping Boba</div><div class="menu-price">25 LE</div><button class="btn-add" onclick="addToCart('Topping Boba', 25)">+ Tambah</button></div></div>
-            <div class="menu-card"><div class="menu-info"><div class="menu-title">Topping Jelly</div><div class="menu-price">15 LE</div><button class="btn-add" onclick="addToCart('Topping Jelly', 15)">+ Tambah</button></div></div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Telur (Ekstra)</div>
+                    <div class="menu-price">10 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Ekstra Telur', 10)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Mie (Ekstra)</div>
+                    <div class="menu-price">10 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Ekstra Mie', 10)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Nasi Putih / Gaol (Ekstra)</div>
+                    <div class="menu-price">15 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Ekstra Nasi Putih/Gaol', 15)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Sambal Merah / Chili Padi</div>
+                    <div class="menu-price">15 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Ekstra Sambal Merah/Chili Padi', 15)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Ceker (1 pcs)</div>
+                    <div class="menu-price">13 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Ekstra Ceker 1pcs', 13)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Ceker (Paket 3 pcs)</div>
+                    <div class="menu-price">35 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Ekstra Ceker Paket 3pcs', 35)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Topping Boba</div>
+                    <div class="menu-price">25 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Topping Boba', 25)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-details">
+                    <div class="menu-title">Topping Jelly</div>
+                    <div class="menu-price">15 LE</div>
+                    <button class="btn-add-cart" onclick="addToCart('Topping Jelly', 15)"><i class="fas fa-cart-plus"></i> Tambah</button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Tentang Kami -->
+    <!-- TENTANG KAMI -->
     <section id="tentang" class="container">
-        <h2 class="section-title">Tentang Kami</h2>
-        <div class="about-card">
-            <p><strong>Khatulistiwa Resto</strong> hadir di jantung Cairo sebagai rumah kedua untuk anak rantau dan pecinta kuliner. Kami hadir untuk menjawab semua kebutuhan kalian dengan rasa yang autentik, cita rasa yang khas, serta disajikan menggunakan bahan-bahan fresh setiap harinya. Nama <strong>“Khatulistiwa”</strong> dipilih karena titik temu rasa yang akan membuat kalian merasa berada di rumah sendiri.</p>
+        <div class="info-section">
+            <h2 class="section-title">Tentang Kami</h2>
+            <p class="about-text">
+                <strong>Khatulistiwa Resto</strong> hadir di jantung Cairo sebagai rumah kedua untuk anak rantau dan pecinta kuliner Indonesia. Kami hadir untuk menjawab semua kebutuhan kalian dengan cita rasa yang khas dan autentik. Semua hidangan disajikan menggunakan bahan-bahan segar setiap harinya. Nama <em>“Khatulistiwa”</em> dipilih sebagai titik temu rasa yang akan membuat Anda merasa selalu berada di rumah.
+            </p>
         </div>
     </section>
 
-    <!-- Kontak Kami -->
+    <!-- KONTAK KAMI -->
     <section id="kontak" class="container">
-        <h2 class="section-title">Kontak Kami</h2>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <i class="fab fa-instagram"></i>
-                <h3>Instagram</h3>
-                <p><a href="https://instagram.com/khatulistiwa.egy" target="_blank">@khatulistiwa.egy</a></p>
-            </div>
-            <div class="contact-card">
-                <i class="fab fa-tiktok"></i>
-                <h3>TikTok</h3>
-                <p><a href="https://tiktok.com/@khatulistiwa.egyp" target="_blank">@khatulistiwa.egyp</a></p>
-            </div>
-            <div class="contact-card">
-                <i class="fab fa-whatsapp"></i>
-                <h3>WhatsApp / Telepon</h3>
-                <p><a href="https://wa.me/201515041807" target="_blank">+20 15 15 041807</a></p>
-            </div>
-            <div class="contact-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Alamat</h3>
-                <p>27 Dr Ibrahim Abou El-Naga, Al Hadiqah Ad Dawleyah, Qesm Than Madinet Nasr, Cairo Governorate 4441280</p>
+        <div class="info-section">
+            <h2 class="section-title">Kontak Kami</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h4>WhatsApp / Telepon</h4>
+                    <p><a href="https://wa.me/201515041807" target="_blank">+20 15 15 041807</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-instagram"></i>
+                    <h4>Instagram</h4>
+                    <p><a href="https://instagram.com/khatulistiwa.egy" target="_blank">@khatulistiwa.egy</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-tiktok"></i>
+                    <h4>TikTok</h4>
+                    <p><a href="https://tiktok.com/@khatulistiwa.egyp" target="_blank">@khatulistiwa.egyp</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Alamat Resto</h4>
+                    <p style="font-size:0.85rem;">27 Dr Ibrahim Abou El-Naga, Al Hadiqah Ad Dawleyah, Qesm Than Madinet Nasr, Cairo Governorate 4441280</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Floating Cart Button -->
-    <div class="cart-float" onclick="openCart()">
-        <i class="fas fa-shopping-cart"></i>
-        <span>Keranjang</span>
-        <span class="cart-badge" id="cart-count">0</span>
-    </div>
-
-    <!-- Modal Keranjang Belanja -->
-    <div class="modal" id="cart-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Keranjang Pesanan</h3>
-                <span class="close-btn" onclick="closeCart()">&times;</span>
-            </div>
-            <div id="cart-items-container">
-                <!-- Item Keranjang akan dirender oleh Javascript -->
-            </div>
-            <div class="cart-total" id="cart-total">Total: 0 LE</div>
-            <button class="btn-checkout" onclick="checkoutWA()"><i class="fab fa-whatsapp"></i> Kirim Pesanan ke WhatsApp</button>
-        </div>
-    </div>
-
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Khatulistiwa Resto - Cairo. All Rights Reserved.</p>
+        <p>&copy; 2026 Khatulistiwa Resto Cairo, Egypt. All Rights Reserved.</p>
     </footer>
 
+    <!-- FLOATING CART BUTTON -->
+    <button class="floating-cart" onclick="openCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Keranjang</span>
+        <span class="cart-badge" id="cartCount">0</span>
+    </button>
+
+    <!-- MODAL KERANJANG & CHECKOUT WA -->
+    <div class="modal-overlay" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-basket"></i> Keranjang Pesanan</h3>
+                <button class="close-btn" onclick="closeCart()">&times;</button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <p style="text-align:center; color:#888;">Keranjang Anda masih kosong.</p>
+            </div>
+
+            <div style="font-size: 1.1rem; font-weight:700; text-align:right; margin-bottom:15px; color:var(--primary-green);">
+                Total: <span id="cartTotal">0</span> LE
+            </div>
+
+            <div class="order-options">
+                <label for="orderType"><i class="fas fa-concierge-bell"></i> Metode Pemesanan:</label>
+                <select id="orderType">
+                    <option value="Dine In">Dine In (Makan di Tempat)</option>
+                    <option value="Tausil / Delivery">Tausil (Delivery / Antar)</option>
+                    <option value="Take Away">Take Away (Bungkus)</option>
+                </select>
+
+                <label for="custName"><i class="fas fa-user"></i> Nama Pemesan:</label>
+                <input type="text" id="custName" placeholder="Masukkan nama Anda">
+
+                <label for="custNotes"><i class="fas fa-sticky-note"></i> Catatan Tambahan (opsional):</label>
+                <textarea id="custNotes" rows="2" placeholder="Contoh: Pedas sedang, Nasi Gaol, dsb."></textarea>
+            </div>
+
+            <button class="btn-checkout" onclick="sendToWhatsapp()">
+                <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT KERANJANG SCRIPT -->
     <script>
         let cart = [];
-        let selectedService = 'Dine In';
 
-        function setService(service, btn) {
-            selectedService = service;
-            let buttons = document.querySelectorAll('.service-btn');
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        }
-
-        function addToCart(name, price) {
-            let item = cart.find(i => i.name === name);
-            if (item) {
-                item.qty++;
+        function addToCart(title, price) {
+            let existingItem = cart.find(item => item.title === title);
+            if (existingItem) {
+                existingItem.qty += 1;
             } else {
-                cart.push({ name: name, price: price, qty: 1 });
+                cart.push({ title: title, price: price, qty: 1 });
             }
-            updateCart();
+            updateCartUI();
         }
 
-        function changeQty(name, delta) {
-            let item = cart.find(i => i.name === name);
-            if (item) {
-                item.qty += delta;
-                if (item.qty <= 0) {
-                    cart = cart.filter(i => i.name !== name);
-                }
+        function changeQty(index, amount) {
+            cart[index].qty += amount;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
             }
-            updateCart();
-            renderCart();
+            updateCartUI();
         }
 
-        function updateCart() {
-            let count = cart.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('cart-count').innerText = count;
-        }
-
-        function renderCart() {
-            let container = document.getElementById('cart-items-container');
-            container.innerHTML = '';
-            let total = 0;
-
+        function updateCartUI() {
+            let totalCount = 0;
+            let totalPrice = 0;
+            const cartItemsContainer = document.getElementById('cartItems');
+            
             if (cart.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color:#888;">Keranjang belanja Anda masih kosong.</p>';
+                cartItemsContainer.innerHTML = `<p style="text-align:center; color:#888;">Keranjang Anda masih kosong.</p>`;
             } else {
-                cart.forEach(item => {
-                    let subtotal = item.price * item.qty;
-                    total += subtotal;
-                    container.innerHTML += `
+                cartItemsContainer.innerHTML = '';
+                cart.forEach((item, index) => {
+                    totalCount += item.qty;
+                    totalPrice += item.price * item.qty;
+
+                    cartItemsContainer.innerHTML += `
                         <div class="cart-item">
                             <div>
-                                <strong>${item.name}</strong><br>
-                                <small>${item.price} LE x ${item.qty} = ${subtotal} LE</small>
+                                <strong>${item.title}</strong><br>
+                                <small>${item.price} LE x ${item.qty} = ${item.price * item.qty} LE</small>
                             </div>
                             <div class="cart-item-controls">
-                                <button onclick="changeQty('${item.name}', -1)">-</button>
-                                <span style="margin: 0 5px;">${item.qty}</span>
-                                <button onclick="changeQty('${item.name}', 1)">+</button>
+                                <button class="btn-qty" onclick="changeQty(${index}, -1)">-</button>
+                                <span>${item.qty}</span>
+                                <button class="btn-qty" onclick="changeQty(${index}, 1)">+</button>
                             </div>
                         </div>
                     `;
                 });
             }
-            document.getElementById('cart-total').innerText = 'Total: ' + total + ' LE';
+
+            document.getElementById('cartCount').innerText = totalCount;
+            document.getElementById('cartTotal').innerText = totalPrice;
         }
 
         function openCart() {
-            renderCart();
-            document.getElementById('cart-modal').style.display = 'flex';
+            document.getElementById('cartModal').style.display = 'flex';
         }
 
         function closeCart() {
-            document.getElementById('cart-modal').style.display = 'none';
+            document.getElementById('cartModal').style.display = 'none';
         }
 
-        function checkoutWA() {
+        function sendToWhatsapp() {
             if (cart.length === 0) {
-                alert('Keranjang belanja Anda kosong!');
+                alert("Keranjang Anda masih kosong!");
                 return;
             }
 
-            let phoneNumber = '201515041807';
-            let message = `Halo *Khatulistiwa Resto*, saya ingin memesan:\n\n`;
-            message += `*Tipe Pesanan:* ${selectedService}\n`;
-            message += `-----------------------------------\n`;
+            const name = document.getElementById('custName').value.trim();
+            const orderType = document.getElementById('orderType').value;
+            const notes = document.getElementById('custNotes').value.trim();
 
-            let total = 0;
-            cart.forEach(item => {
+            if (!name) {
+                alert("Silakan masukkan Nama Pemesan terlebih dahulu.");
+                return;
+            }
+
+            let phoneNumber = "201515041807"; // Format internasional Mesir (+20)
+            let text = `Halo *Khatulistiwa Resto*, saya ingin memesan:\n\n`;
+            text += `*Nama Pemesan:* ${name}\n`;
+            text += `*Metode:* ${orderType}\n`;
+            text += `-------------------------------------------\n`;
+
+            let totalPrice = 0;
+            cart.forEach((item) => {
                 let subtotal = item.price * item.qty;
-                total += subtotal;
-                message += `• ${item.name} (${item.qty}x) = ${subtotal} LE\n`;
+                totalPrice += subtotal;
+                text += `• ${item.title} (x${item.qty}) : ${subtotal} LE\n`;
             });
 
-            message += `-----------------------------------\n`;
-            message += `*Total Pembayaran: ${total} LE*\n\n`;
-            message += `Mohon diproses pesanan saya. Terima kasih!`;
+            text += `-------------------------------------------\n`;
+            text += `*Total Pembayaran:* ${totalPrice} LE\n`;
+            if (notes) {
+                text += `*Catatan:* ${notes}\n`;
+            }
+            text += `\nTerima kasih!`;
 
-            let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
+            let encodedText = encodeURIComponent(text);
+            let waUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+
+            window.open(waUrl, '_blank');
         }
     </script>
 </body>
